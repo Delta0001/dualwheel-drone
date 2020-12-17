@@ -15,21 +15,21 @@
     <p id="demo"></p>
     <script>
         window.addEventListener('keydown', function (event) {
-            switch (event.key) {
+            switch (event.code) {
                 case "ArrowLeft":
-                case "a":
+                case "KeyA":
                     moveLeft();
                     break;
                 case "ArrowRight":
-                case "d":
+                case "KeyD":
                     moveRight();
                     break;
                 case "ArrowUp":
-                case "w":
+                case "KeyW":
                     moveForward();
                     break;
                 case "ArrowDown":
-                case "s":
+                case "KeyS":
                     moveDown();
                     break;
             }
