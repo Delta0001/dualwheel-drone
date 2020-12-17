@@ -14,6 +14,23 @@
     <button type="button" onclick="loadDoc()">Request data</button>
     <p id="demo"></p>
     <script>
+        Window.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case "ArrowLeft":
+                    moveLeft();
+                    break;
+                case "ArrowRight":
+                    moveRight();
+                    break;
+                case "ArrowUp":
+                    moveForward();
+                    break;
+                case "ArrowDown":
+                    moveDown();
+                    break;
+            }
+        });
+
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -24,21 +41,25 @@
             xhttp.open("POST", "user", true);
             xhttp.send();
         }
+
         function moveForward() {
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "forward", true);
             xhttp.send();
         }
+
         function moveLeft() {
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "left", true);
             xhttp.send();
         }
+
         function moveRight() {
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "right", true);
             xhttp.send();
         }
+
         function moveDown() {
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "down", true);
@@ -56,23 +77,23 @@
         <tr>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" onclick="moveForward()">
+                <input type="image" src="images/Arrow.png" onclick="moveForward()" name="forwardButton">
             </td>
             <td></td>
         </tr>
         <tr>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate270" onclick="moveLeft()">
+                <input type="image" src="images/Arrow.png" class="rotate270" onclick="moveLeft()" name="leftButton">
             </td>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate90" onclick="moveRight()">
+                <input type="image" src="images/Arrow.png" class="rotate90" onclick="moveRight()" name="rightButton">
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate180" onclick="moveDown()">
+                <input type="image" src="images/Arrow.png" class="rotate180" onclick="moveDown()" name="downButton">
             </td>
             <td></td>
         </tr>
