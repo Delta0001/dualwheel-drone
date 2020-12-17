@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.put('/user', function (req, res) {
+  res.send('Got a PUT request at /user')
+})
+
 module.exports = router;
