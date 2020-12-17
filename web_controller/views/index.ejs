@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <style></style>
 </head>
+
 <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
@@ -22,6 +24,26 @@
             xhttp.open("POST", "user", true);
             xhttp.send();
         }
+        function moveForward() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "forward", true);
+            xhttp.send();
+        }
+        function moveLeft() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "left", true);
+            xhttp.send();
+        }
+        function moveRight() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "right", true);
+            xhttp.send();
+        }
+        function moveDown() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "down", true);
+            xhttp.send();
+        }
     </script>
     <p>Speed:</p>
     <input type="radio" id="option1" name="speed" value="25">
@@ -34,23 +56,23 @@
         <tr>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" onclick="loadDoc()" >
+                <input type="image" src="images/Arrow.png" onclick="moveForward()">
             </td>
             <td></td>
         </tr>
         <tr>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate270" onclick="loadDoc()" >
+                <input type="image" src="images/Arrow.png" class="rotate270" onclick="moveLeft()">
             </td>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate90" onclick="loadDoc()" >
+                <input type="image" src="images/Arrow.png" class="rotate90" onclick="moveRight()">
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate180" onclick="loadDoc()" >
+                <input type="image" src="images/Arrow.png" class="rotate180" onclick="moveDown()">
             </td>
             <td></td>
         </tr>
@@ -70,4 +92,5 @@
         </tr>
     </table>
 </body>
+
 </html>
