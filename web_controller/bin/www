@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('web-controller:server');
+var debug = require('debug')('dualwheel-drone:server');
 var http = require('http');
 
 /**
