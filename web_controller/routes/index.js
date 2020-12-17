@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.POST('/user', function (req, res) {
+router.post('/user', function (req, res) {
   res.send('Got a PUT request at /user')
 })
 
