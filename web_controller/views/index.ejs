@@ -36,6 +36,7 @@
                     moveDown();
                     break;
             }
+            event.preventDefault();
         });
 
         window.addEventListener('keyup', function (event) {
@@ -45,21 +46,16 @@
             switch (event.code) {
                 case "KeyA":
                 case "ArrowLeft":
-                    moveLeft();
-                    break;
                 case "KeyD":
                 case "ArrowRight":
-                    moveRight();
-                    break;
                 case "KeyW":
                 case "ArrowUp":
-                    moveForward();
-                    break;
                 case "KeyS":
                 case "ArrowDown":
-                    moveDown();
+                    stopMotor();
                     break;
             }
+            event.preventDefault();
         });
 
 
@@ -95,6 +91,12 @@
         function moveDown() {
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "down", true);
+            xhttp.send();
+        }
+
+        function stopMotor() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "stop", true);
             xhttp.send();
         }
     </script>
