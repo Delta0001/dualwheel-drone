@@ -14,7 +14,7 @@
     <button type="button" onclick="loadDoc()">Request data</button>
     <p id="demo"></p>
     <script>
-        window.addEventListener('keydown', function (event) {
+        window.addEventListener('keypress', function (event) {
             switch (event.code) {
                 case "ArrowLeft":
                 case "KeyA":
@@ -31,6 +31,8 @@
                 case "ArrowDown":
                 case "KeyS":
                     moveDown();
+                    break;
+                default:
                     break;
             }
         });
