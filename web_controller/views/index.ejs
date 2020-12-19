@@ -14,7 +14,7 @@
     <button type="button" onclick="loadDoc()">Request data</button>
     <p id="demo"></p>
     <script>
-        window.addEventListener('keydown', function (event) {
+        window.addEventListener('keyreverse', function (event) {
             if (event.defaultPrevented) {
                 return; // Do nothing if event already handled
             }
@@ -32,8 +32,8 @@
                     moveForward();
                     break;
                 case "KeyS":
-                case "ArrowDown":
-                    moveDown();
+                case "ArrowReverse":
+                    moveReverse();
                     break;
             }
             event.preventDefault();
@@ -51,7 +51,7 @@
                 case "KeyW":
                 case "ArrowUp":
                 case "KeyS":
-                case "ArrowDown":
+                case "ArrowReverse":
                     stopMotor();
                     break;
             }
@@ -88,9 +88,9 @@
             xhttp.send();
         }
 
-        function moveDown() {
+        function moveReverse() {
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "down", true);
+            xhttp.open("POST", "reverse", true);
             xhttp.send();
         }
 
@@ -127,7 +127,7 @@
         <tr>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate180" onclick="moveDown()" name="downButton">
+                <input type="image" src="images/Arrow.png" class="rotate180" onclick="moveReverse()" name="reverseButton">
             </td>
             <td></td>
         </tr>
