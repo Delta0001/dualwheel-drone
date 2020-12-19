@@ -15,9 +15,12 @@
     <p id="demo"></p>
     <script>
         window.addEventListener('keypress', function (event) {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
             switch (event.code) {
-                case "KeyA":
                 case "ArrowLeft":
+                case "KeyA":
                     moveLeft();
                     break;
                 case "ArrowRight":
@@ -31,8 +34,6 @@
                 case "ArrowDown":
                 case "KeyS":
                     moveDown();
-                    break;
-                default:
                     break;
             }
         });
