@@ -7,7 +7,8 @@ const GPIO13 = 33;
 rpio.open(GPIO12, rpio.PWM);
 rpio.open(GPIO13, rpio.PWM);
 rpio.pwmSetClockDivider(64); // Set PWM refresh rate to 19.2MHz/64=300kHz
-rpio.pwmSetRange(0, 1024); // PWM Range
+rpio.pwmSetRange(GPIO12, 1024); // PWM Range
+rpio.pwmSetRange(GPIO13, 1024); // PWM Range
 
 function stop() {
     rpio.pwmSetData(GPIO12, 0);
