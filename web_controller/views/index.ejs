@@ -20,8 +20,6 @@
             }
             switch (event.code) {
                 case "KeyA":
-                    moveLeft();
-                    break;
                 case "ArrowLeft":
                     moveLeft();
                     break;
@@ -40,29 +38,30 @@
             }
         });
 
-        // window.addEventListener('keyup', function (event) {
-        //     if (event.defaultPrevented) {
-        //         return; // Do nothing if event already handled
-        //     }
-        //     switch (event.code) {
-        //         case "ArrowLeft":
-        //         case "KeyA":
-        //             moveLeft();
-        //             break;
-        //         case "ArrowRight":
-        //         case "KeyD":
-        //             moveRight();
-        //             break;
-        //         case "ArrowUp":
-        //         case "KeyW":
-        //             moveForward();
-        //             break;
-        //         case "ArrowDown":
-        //         case "KeyS":
-        //             moveDown();
-        //             break;
-        //     }
-        // });
+        window.addEventListener('keyup', function (event) {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+            switch (event.code) {
+                case "KeyA":
+                case "ArrowLeft":
+                    moveLeft();
+                    break;
+                case "KeyD":
+                case "ArrowRight":
+                    moveRight();
+                    break;
+                case "KeyW":
+                case "ArrowUp":
+                    moveForward();
+                    break;
+                case "KeyS":
+                case "ArrowDown":
+                    moveDown();
+                    break;
+            }
+        });
+
 
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
