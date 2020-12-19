@@ -1,1 +1,1 @@
-DEBUG=dualwheel-drone:* npm start
+nodemon DEBUG=dualwheel-drone:* npm start
