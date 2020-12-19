@@ -25,6 +25,7 @@ SUBSYSTEM=="bcm2835-gpiomem", KERNEL=="gpiomem", GROUP="gpio", MODE="0660"
 EOF
 ```
 
-For access to i²c, PWM, and SPI, or if you are running an older kernel which
-does not have the `bcm2835-gpiomem` module, you will need to run your programs
-as root for access to `/dev/mem`.
+I ran this command with: ''sudo bash -c 'cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
+SUBSYSTEM=="bcm2835-gpiomem", KERNEL=="gpiomem", GROUP="gpio", MODE="0660"
+EOF
+
