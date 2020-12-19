@@ -1,9 +1,6 @@
 var express = require('express');
-var rpio = require('rpio');
 var router = express.Router();
-
-rpio.open(15, rpio.INPUT);
-console.log('Pin 15 is currently ' + (rpio.read(15) ? 'high' : 'low'));
+var driver = reqiore('../driver')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
