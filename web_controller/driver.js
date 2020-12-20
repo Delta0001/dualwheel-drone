@@ -4,7 +4,7 @@ const GPIO12 = 32;
 const GPIO13 = 33;
 const MAXSPEED = 1024;
 
-var speed = 100;
+this.speed = 100;
 
 // Setup PWM pins
 rpio.open(GPIO12, rpio.PWM);
