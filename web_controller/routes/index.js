@@ -7,9 +7,9 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.put('/speed/:id', function (req, res, next) {
-  // driver.setSpeed(req.params.id)
-  console.log(req.params.id)
+router.put('/speed/:value', function (req, res, next) {
+  // driver.setSpeed(req.params.value)
+  console.log(req.params("value"))
   next()
 }, function (req, res) {
   res.send('Got a PUT request at /stop')
