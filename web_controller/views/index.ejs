@@ -13,9 +13,6 @@
     <!-- <h1>The XMLHttpRequest Object</h1>/h1> -->
     <script>
         window.addEventListener('keydown', function (event) {
-            // if (event.defaultPrevented) { // Disabled because this seems to disable browser actions
-            //     return; // Do nothing if event already handled
-            // }
             switch (event.code) {
                 case "KeyA":
                 case "ArrowLeft":
@@ -34,13 +31,9 @@
                     moveReverse();
                     break;
             }
-            event.preventDefault();
         });
 
         window.addEventListener('keyup', function (event) {
-            // if (event.defaultPrevented) { // Disabled because this seems to disable browser actions
-            //     return; // Do nothing if event already handled
-            // }
             switch (event.code) {
                 case "KeyA":
                 case "ArrowLeft":
@@ -53,23 +46,12 @@
                     stopMotor();
                     break;
             }
-            event.preventDefault();
         });
-
-        // function loadDoc() {
-        //     var xhttp = new XMLHttpRequest();
-        //     xhttp.onreadystatechange = function () {
-        //         // if (this.readyState == 4 && this.status == 200) {
-        //         //     document.getElementById("demo").innerHTML = this.responseText;
-        //         // }
-        //     };
-        //     xhttp.open("POST", "user", true);
-        //     xhttp.send();
-        // }
 
         function setSpeed() {
             var speed;
             var xhttp = new XMLHttpRequest();
+
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var radios = document.getElementsByName("speed");
@@ -88,6 +70,7 @@
         function moveForward() {
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "forward", true);
+            xhttp.setRequestHeader('speed', speed);
             xhttp.send();
         }
 
