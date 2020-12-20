@@ -39,3 +39,5 @@ function drive(direction) {
             break;
     }
 }
+
+module.exports = driver;
