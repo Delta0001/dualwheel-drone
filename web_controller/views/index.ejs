@@ -12,7 +12,7 @@
     <p>Welcome to <%= title %></p> -->
     <!-- <h1>The XMLHttpRequest Object</h1>/h1> -->
     <script>
-        window.addEventListener('keydown', function (event) {
+        document.addEventListener('keydown', function (event) {
             if (event.defaultPrevented) {
                 return; // Do nothing if event already handled
             }
@@ -37,7 +37,7 @@
             event.preventDefault();
         });
 
-        window.addEventListener('keyup', function (event) {
+        document.addEventListener('keyup', function (event) {
             if (event.defaultPrevented) {
                 return; // Do nothing if event already handled
             }
