@@ -4,7 +4,7 @@ const GPIO12 = 32;
 const GPIO13 = 33;
 const MAXSPEED = 1024;
 
-this.speed = 100;
+var speed = 100;
 
 // Setup PWM pins
 rpio.open(GPIO12, rpio.PWM);
@@ -13,13 +13,12 @@ rpio.pwmSetClockDivider(64); // Set PWM refresh rate to 19.2MHz/64=300kHz
 rpio.pwmSetRange(GPIO12, MAXSPEED); // PWM Range
 rpio.pwmSetRange(GPIO13, MAXSPEED); // PWM Range
 
-function setSpeed(speed) {
-    console.log("global speed set to " + this.speed); // debug
-    console.log("speed set to " + speed); // debug
-    if (speed <= MAXSPEED && speed >= 0) {
-        this.speed = speed;
+function setSpeed(new_speed) {
+    if (new_speed <= MAXSPEED && new_speed >= 0) {
+        console.log("speed set to " + new_speed); // debug
+        speed = new_speed;
     }
-    console.log("global speed set to " + this.speed); // debug
+    console.log("global speed set to " + speed); // debug
 }
 
 function stop() {
