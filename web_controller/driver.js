@@ -17,6 +17,7 @@ function setSpeed(speed) {
     if (this.speed <= MAXSPEED && this.speed >= 0) {
         speed = this.speed;
         console.log("speed set to " + this.speed); // debug
+        console.log("speed set to " + speed); // debug
     }
 }
 
