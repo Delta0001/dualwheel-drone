@@ -12,10 +12,10 @@
     <p>Welcome to <%= title %></p> -->
     <!-- <h1>The XMLHttpRequest Object</h1>/h1> -->
     <script>
-        document.addEventListener('keydown', function (event) {
-            if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
-            }
+        window.addEventListener('keydown', function (event) {
+            // if (event.defaultPrevented) { // Disabled because this seems to disable browser actions
+            //     return; // Do nothing if event already handled
+            // }
             switch (event.code) {
                 case "KeyA":
                 case "ArrowLeft":
@@ -37,10 +37,10 @@
             event.preventDefault();
         });
 
-        document.addEventListener('keyup', function (event) {
-            if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
-            }
+        window.addEventListener('keyup', function (event) {
+            // if (event.defaultPrevented) { // Disabled because this seems to disable browser actions
+            //     return; // Do nothing if event already handled
+            // }
             switch (event.code) {
                 case "KeyA":
                 case "ArrowLeft":
@@ -69,6 +69,7 @@
 
         function setSpeed() {
             var speed;
+            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var radios = document.getElementsByName("speed");
@@ -122,7 +123,7 @@
     <input type="radio" id="option2" name="speed" value="250">
     <label for="option2">250</label><br>
     <input type="radio" id="option3" name="speed" value="500">
-    <label for="option3">500</label><br>s
+    <label for="option3">500</label><br>
     <table class="controllerTable">
         <tr>
             <td></td>
