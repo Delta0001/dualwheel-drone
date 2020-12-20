@@ -40,4 +40,4 @@ function drive(direction) {
     }
 }
 
-module.exports = driver;
+module.exports = { stop, drive };
