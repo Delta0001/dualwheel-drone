@@ -69,7 +69,6 @@
         function moveForward() {
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "forward", true);
-            xhttp.setRequestHeader('speed', speed);
             xhttp.send();
         }
 
