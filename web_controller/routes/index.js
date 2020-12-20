@@ -16,24 +16,28 @@ router.post('/stop', function (req, res, next) {
 
 router.post('/forward', function (req, res, next) {
   res.send('Got a PUT request at /forward')
+  next()
 }, function (req, res) {
   driver.drive("forward");
 })
 
 router.post('/left', function (req, res, next) {
   res.send('Got a PUT request at /left')
+  next()
 }, function (req, res) {
   driver.drive("left");
 })
 
 router.post('/right', function (req, res, next) {
   res.send('Got a PUT request at /right')
+  next()
 }, function (req, res) {
   driver.drive("right");
 })
 
 router.post('/reverse', function (req, res, next) {
   res.send('Got a PUT request at /reverse')
+  next()
 }, function (req, res) {
   driver.drive("reverse");
 })
