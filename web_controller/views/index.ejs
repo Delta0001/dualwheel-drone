@@ -52,17 +52,12 @@
             var speed;
             var xhttp = new XMLHttpRequest();
 
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var radios = document.getElementsByName("speed");
-                    for (var i = 0; i < radios.length; i++) {
-                        if (radios[i].checked) {
-                            speed = radios[i].value;
-                        }
-                    }
+            var radios = document.getElementsByName("speed");
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    speed = radios[i].value;
                 }
             };
-            console.log(speed);
             xhttp.open("PUT", "speed/" + speed, true);
             xhttp.send();
         }
