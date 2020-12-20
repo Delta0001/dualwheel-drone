@@ -8,38 +8,38 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/stop', function (req, res, next) {
-  res.send('Got a PUT request at /stop')
+  driver.stop();
   next()
 }, function (req, res) {
-  driver.stop();
+  res.send('Got a PUT request at /stop')
 })
 
 router.post('/forward', function (req, res, next) {
-  res.send('Got a PUT request at /forward')
+  driver.drive("forward");
   next()
 }, function (req, res) {
-  driver.drive("forward");
+  res.send('Got a PUT request at /forward')
 })
 
 router.post('/left', function (req, res, next) {
-  res.send('Got a PUT request at /left')
+  driver.drive("left");
   next()
 }, function (req, res) {
-  driver.drive("left");
+  res.send('Got a PUT request at /left')
 })
 
 router.post('/right', function (req, res, next) {
-  res.send('Got a PUT request at /right')
+  driver.drive("right");
   next()
 }, function (req, res) {
-  driver.drive("right");
+  res.send('Got a PUT request at /right')
 })
 
 router.post('/reverse', function (req, res, next) {
-  res.send('Got a PUT request at /reverse')
+  driver.drive("reverse");
   next()
 }, function (req, res) {
-  driver.drive("reverse");
+  res.send('Got a PUT request at /reverse')
 })
 
 
