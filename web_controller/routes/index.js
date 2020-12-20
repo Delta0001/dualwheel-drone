@@ -7,39 +7,46 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.put('/speed', function (req, res, next) {
+  driver.setSpeed(req.body)
+  next()
+}, function (req, res) {
+  res.send('Got a PUT request at /stop')
+})
+
 router.post('/stop', function (req, res, next) {
   driver.stop();
   next()
 }, function (req, res) {
-  res.send('Got a PUT request at /stop')
+  res.send('Got a POST request at /stop')
 })
 
 router.post('/forward', function (req, res, next) {
   driver.drive("forward");
   next()
 }, function (req, res) {
-  res.send('Got a PUT request at /forward')
+  res.send('Got a POST request at /forward')
 })
 
 router.post('/left', function (req, res, next) {
   driver.drive("left");
   next()
 }, function (req, res) {
-  res.send('Got a PUT request at /left')
+  res.send('Got a POST request at /left')
 })
 
 router.post('/right', function (req, res, next) {
   driver.drive("right");
   next()
 }, function (req, res) {
-  res.send('Got a PUT request at /right')
+  res.send('Got a POST request at /right')
 })
 
 router.post('/reverse', function (req, res, next) {
   driver.drive("reverse");
   next()
 }, function (req, res) {
-  res.send('Got a PUT request at /reverse')
+  res.send('Got a POST request at /reverse')
 })
 
 module.exports = router;

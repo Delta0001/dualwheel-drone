@@ -8,11 +8,9 @@
 </head>
 
 <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <h1>The XMLHttpRequest Object</h1>
-    <button type="button" onclick="loadDoc()">Request data</button>
-    <p id="demo"></p>
+    <!-- <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p> -->
+    <!-- <h1>The XMLHttpRequest Object</h1>/h1> -->
     <script>
         window.addEventListener('keydown', function (event) {
             if (event.defaultPrevented) {
@@ -58,16 +56,32 @@
             event.preventDefault();
         });
 
+        // function loadDoc() {
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function () {
+        //         // if (this.readyState == 4 && this.status == 200) {
+        //         //     document.getElementById("demo").innerHTML = this.responseText;
+        //         // }
+        //     };
+        //     xhttp.open("POST", "user", true);
+        //     xhttp.send();
+        // }
 
-        function loadDoc() {
-            var xhttp = new XMLHttpRequest();
+        function setSpeed() {
+            var speed;
             xhttp.onreadystatechange = function () {
-                // if (this.readyState == 4 && this.status == 200) {
-                //     document.getElementById("demo").innerHTML = this.responseText;
-                // }
+                if (this.readyState == 4 && this.status == 200) {
+                    var radios = document.getElementsByName("speed");
+                    for (var i = 0; i < radios.length; i++ ) {
+                        if (radios[i].checked) {
+                            speed = radios[i].value;
+                        }
+                    }
+                }
             };
-            xhttp.open("POST", "user", true);
-            xhttp.send();
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("PUT", "speed", true);
+            xhttp.send(speed);
         }
 
         function moveForward() {
@@ -100,13 +114,15 @@
             xhttp.send();
         }
     </script>
+    <button type="button" onclick="setSpeed()">Set Speed</button>
+    <p id="demo"></p>
     <p>Speed:</p>
-    <input type="radio" id="option1" name="speed" value="25">
-    <label for="option1">25</label><br>
-    <input type="radio" id="option2" name="speed" value="37">
-    <label for="option2">37</label><br>
-    <input type="radio" id="option3" name="speed" value="50">
-    <label for="option3">50</label><br>
+    <input type="radio" id="option1" name="speed" value="100" checked="true">
+    <label for="option1">100</label><br>
+    <input type="radio" id="option2" name="speed" value="250">
+    <label for="option2">250</label><br>
+    <input type="radio" id="option3" name="speed" value="500">
+    <label for="option3">500</label><br>s
     <table class="controllerTable">
         <tr>
             <td></td>
@@ -127,7 +143,8 @@
         <tr>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate180" onclick="moveReverse()" name="reverseButton">
+                <input type="image" src="images/Arrow.png" class="rotate180" onclick="moveReverse()"
+                    name="reverseButton">
             </td>
             <td></td>
         </tr>
