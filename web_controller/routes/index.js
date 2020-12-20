@@ -8,7 +8,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.put('/speed/:value', function (req, res, next) {
-  driver.setSpeed(req.params.value)
+  // driver.setSpeed(req.params.value)
+  driver.setSpeed(req.params("value"))
   next()
 }, function (req, res) {
   res.send('Got a PUT request at /value')
