@@ -15,18 +15,20 @@ function stop() {
     rpio.pwmSetData(GPIO13, 0);
 }
 
+var speed = 100;
+
 function drive(direction) {
     switch (direction) {
         case "forward":
-            rpio.pwmSetData(GPIO12, 0);
-            rpio.pwmSetData(GPIO13, 0);
+            rpio.pwmSetData(GPIO12, speed);
+            rpio.pwmSetData(GPIO13, speed);
             break;
         case "left":
             rpio.pwmSetData(GPIO12, 0);
-            rpio.pwmSetData(GPIO13, 50);
+            rpio.pwmSetData(GPIO13, speed);
             break;
         case "right":
-            rpio.pwmSetData(GPIO12, 50);
+            rpio.pwmSetData(GPIO12, speed);
             rpio.pwmSetData(GPIO13, 0);
             break;
         case "reverse":
