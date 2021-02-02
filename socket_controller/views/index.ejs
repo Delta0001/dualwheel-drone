@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style></style>
+</head>
+
+<body>
+    <!-- <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p> -->
+    <!-- <h1>The XMLHttpRequest Object</h1>/h1> -->
+    <script>
+        var xhttp = new XMLHttpRequest();
+        const ws = new WebSocket('ws://localhost:3030');
+        ws.onopen = () => {
+            console.log('Now connected');
+        };
+
+        window.addEventListener('keydown', function (event) {
+            switch (event.code) {
+                case "KeyA":
+                case "ArrowLeft":
+                    moveLeft();
+                    break;
+                case "KeyD":
+                case "ArrowRight":
+                    moveRight();
+                    break;
+                case "KeyW":
+                case "ArrowUp":
+                    moveForward();
+                    break;
+                case "KeyS":
+                case "ArrowDown":
+                    moveReverse();
+                    break;
+            }
+        });
+
+        window.addEventListener('keyup', function (event) {
+            switch (event.code) {
+                case "KeyA":
+                case "ArrowLeft":
+                case "KeyD":
+                case "ArrowRight":
+                case "KeyW":
+                case "ArrowUp":
+                case "KeyS":
+                case "ArrowDown":
+                    stopMotor();
+                    break;
+            }
+        });
+
+        function setSpeed() {
+            var speed;
+            var radios = document.getElementsByName("speed");
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    speed = radios[i].value;
+                }
+            };
+            ws.send('speed ' + speed);
+        }
+
+        function moveForward() {
+            ws.send('forward');
+        }
+
+        function moveLeft() {
+            ws.send('left');
+        }
+
+        function moveRight() {
+            ws.send('right');
+        }
+
+        function moveReverse() {
+            ws.send('reverse');
+        }
+
+        function stopMotor() {
+            ws.send('stop');
+        }
+    </script>
+    <button type="button" onclick="setSpeed()">Set Speed</button>
+    <p id="demo"></p>
+    <p>Speed:</p>
+    <input type="radio" id="option1" name="speed" value="100" checked="true">
+    <label for="option1">100</label><br>
+    <input type="radio" id="option2" name="speed" value="250">
+    <label for="option2">250</label><br>
+    <input type="radio" id="option3" name="speed" value="500">
+    <label for="option3">500</label><br>
+    <table class="controllerTable">
+        <tr>
+            <td></td>
+            <td>
+                <input type="image" src="images/Arrow.png" onclick="moveForward()" name="forwardButton">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="image" src="images/Arrow.png" class="rotate270" onclick="moveLeft()" name="leftButton">
+            </td>
+            <td></td>
+            <td>
+                <input type="image" src="images/Arrow.png" class="rotate90" onclick="moveRight()" name="rightButton">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="image" src="images/Arrow.png" class="rotate180" onclick="moveReverse()"
+                    name="reverseButton">
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <br><br><br><br>
+    <table style="margin:auto;">
+        <tr>
+            <td class="boxed">
+                <div></div>
+            </td>
+            <td class="boxed">
+                <div></div>
+            </td>
+            <td class="boxed">
+                <div></div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
