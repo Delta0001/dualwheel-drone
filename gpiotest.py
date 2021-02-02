@@ -17,5 +17,9 @@ pwm0.value = 0.05
 print("0.05")
 sleep(5)
 
+pwm0.value = 0.075
+print("0.05")
+sleep(5)
+
 print("off")
 pwm0.off()
