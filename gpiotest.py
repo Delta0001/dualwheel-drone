@@ -10,7 +10,7 @@ print("0.0 ARM START")
 sleep(3)
 
 # arm
-print("0.03 ARM FINISH)
+print("0.03 ARM FINISH")
 pwm0.value = 0.03
 sleep(5)
 
