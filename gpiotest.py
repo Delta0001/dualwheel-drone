@@ -20,9 +20,9 @@ sleep(5)
 
 print("RAMP to 7")
 x = 0.03
-while (x < 7.0)
+while (x < 7)
     x += 0.01
-    
+
     pwm0.value = x
     print(x)
     sleep(0.1)
