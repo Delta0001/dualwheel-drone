@@ -6,7 +6,7 @@ pwm0.on()
 
 pwm0.value = 0.0
 print("0.0")
-sleep(10)
+sleep(3)
 
 pwm0.value = 0.03
 print("0.03")
