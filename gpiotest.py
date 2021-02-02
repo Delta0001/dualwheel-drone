@@ -14,14 +14,17 @@ print("0.0 ARM START")
 sleep(3)
 
 # arm
-print("0.03 ARM FINISH")
 pwm0.value = 0.03
+print("0.03 ARM FINISH")
 sleep(5)
 
 print("RAMP to 7")
-for x in range(0.03, 0.01, 7.0):
-    print(x)
+x = 0.03
+while (x < 7.0)
+    x += 0.01
+    
     pwm0.value = x
+    print(x)
     sleep(0.1)
 
 # pwm0.value = 0.05
