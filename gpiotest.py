@@ -2,8 +2,12 @@ import gpiozero
 from time import sleep
 
 pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=True, initial_value=0, frequency=50)
-print("on")
+
+pwm0.off()
+print("off")
+
 pwm0.on()
+print("on")
 
 pwm0.value = 0.0
 print("0.0 ARM START")
@@ -30,4 +34,3 @@ for x in range(0.03, 0.01, 7.0):
 
 # print("off")
 sleep(5)
-pwm0.off()
