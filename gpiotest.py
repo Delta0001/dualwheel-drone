@@ -7,7 +7,7 @@ print("0.0")
 pwm0.on()
 sleep(10)
 
-pwm0.value = 0.05
-print("0.05")
+pwm0.value = 0.03
+print("0.03")
 sleep(5)
 pwm0.off()
