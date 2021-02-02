@@ -15,7 +15,7 @@ pwm0.value = 0.03
 sleep(5)
 
 print("RAMP to 7")
-for x in range(0.03, 0.01, 7):
+for x in range(0.03, 0.01, 7.0):
     print(x)
     pwm0.value = x
     sleep(0.1)
