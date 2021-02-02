@@ -15,10 +15,10 @@ rpio.pwmSetRange(GPIO13, MAXSPEED); // PWM Range
 
 function setSpeed(new_speed) {
     if (new_speed <= MAXSPEED && new_speed >= 0) {
-        console.log("speed set to " + new_speed); // debug
+        console.log("Checking new speed: " + new_speed); // debug
         speed = new_speed;
     }
-    console.log("global speed set to " + speed); // debug
+    console.log("Speed Set: " + speed); // debug
 }
 
 function stop() {
