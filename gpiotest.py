@@ -1,7 +1,7 @@
 import gpiozero
 from time import sleep
 
-pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=True, initial_value=0, frequency=50)
+pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=True, initial_value=0.54, frequency=50)
 
 pwm0.off()
 print("off")
