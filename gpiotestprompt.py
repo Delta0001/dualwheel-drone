@@ -10,3 +10,5 @@ while (1):
         pwm0.on()
     elif (x == "OFF"):
         pwm0.off()
+    else:
+        pwm.value = x
