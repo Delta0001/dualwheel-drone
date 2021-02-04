@@ -8,6 +8,7 @@ print("off")
 
 # power
 pwm0.on()
+pwm0.value = 0.0
 print("on")
 
 # # arm sequence
