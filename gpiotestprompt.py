@@ -11,4 +11,4 @@ while (1):
     elif (x == "OFF"):
         pwm0.off()
     else:
-        pwm.value = x
+        pwm0.value = x
