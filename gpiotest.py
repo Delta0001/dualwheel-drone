@@ -8,10 +8,11 @@ print("off")
 
 # power
 pwm0.on()
-print("0.0 POWER ON")
+pwm0.value = 0.54
+print("0.54 POWER ON")
 
 # arm sequence
-pwm0.value = 5.4
+pwm0.value = 0.54
 print("0.54 ARM SEQ START")
 sleep(3)
 
