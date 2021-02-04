@@ -18,7 +18,7 @@ pwm0.value = 0.58
 sleep(1)
 
 print("ARM SEQ END")
-pwm0.value = 0.53 #0.03 and 0.04 works for normal mode. 0.5 for bidirectional
+pwm0.value = 0.525 #0.03 and 0.04 works for normal mode. 0.5 for bidirectional
 sleep(5)
 
 print("0.5")
