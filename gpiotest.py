@@ -15,7 +15,7 @@ print("0.0 ARM SEQ START")
 sleep(3)
 
 pwm0.value = 0.5 #0.03 and 0.04 works for normal mode. 0.5 for bidirectional
-print("0.03 ARM SEQ END")
+print("0.5 ARM SEQ END")
 sleep(5)
 
 # print("0.5")
