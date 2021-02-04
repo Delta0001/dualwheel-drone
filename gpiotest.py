@@ -14,12 +14,12 @@ sleep(5)
 
 # arm sequence
 print("ARM SEQ START")
-pwm0.value = 0.59
+pwm0.value = 0.58
 sleep(2)
 
-# print("ARM SEQ END")
-# pwm0.value = 0.54 #0.03 and 0.04 works for normal mode. 0.5 for bidirectional
-# sleep(5)
+print("ARM SEQ END")
+pwm0.value = 0.54 #0.03 and 0.04 works for normal mode. 0.5 for bidirectional
+sleep(5)
 
 # print("0.5")
 # pwm0.value = 0.5
