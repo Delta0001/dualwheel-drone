@@ -5,6 +5,7 @@ pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=False, initial_value=0.54,
 
 print("POWER OFF")
 pwm0.off()
+sleep(1)
 
 # power
 print("POWER ON")
