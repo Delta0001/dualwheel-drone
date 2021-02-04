@@ -9,13 +9,12 @@ pwm0.off()
 # power
 print("POWER ON")
 pwm0.on()
-    
-sleep(5)
+sleep(3)
 
 # arm sequence
 print("ARM SEQ START")
 pwm0.value = 0.58
-sleep(2)
+sleep(1)
 
 print("ARM SEQ END")
 pwm0.value = 0.54 #0.03 and 0.04 works for normal mode. 0.5 for bidirectional
