@@ -10,7 +10,7 @@ print("off")
 pwm0.on()
 # pwm0.value = 0.54
 # print("0.54 POWER ON")
-# sleep(1)
+sleep(3)
 
 # # arm sequence
 # pwm0.value = 0.54
