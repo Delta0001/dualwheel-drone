@@ -9,7 +9,7 @@ pwm0.off()
 # power
 print("POWER ON")
 pwm0.on()
-sleep(10)
+sleep(5)
 
 # arm sequence
 print("ARM SEQ START")
@@ -35,3 +35,4 @@ sleep(5)
 #     sleep(0.1)
 
 # sleep(5)
+print("PROG EXIT")
