@@ -12,7 +12,7 @@ print("0.0 POWER ON")
 sleep(3)
 
 # arm sequence
-pwm0.value = 0.58
+pwm0.value = 0.65
 print("0.58 ARM SEQ START")
 sleep(5)
 
