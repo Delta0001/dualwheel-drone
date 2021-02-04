@@ -8,5 +8,5 @@ while (1):
 
     if (x == "ON"):
         pwm0.on()
-    else if (x == "OFF"):
+    elif (x == "OFF"):
         pwm0.off()
