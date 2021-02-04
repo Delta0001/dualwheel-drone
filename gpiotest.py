@@ -9,16 +9,19 @@ print("off")
 pwm0.on()
 print("on")
 
+# arm sequence
 pwm0.value = 0.0
 print("0.0 ARM SEQ START")
 sleep(3)
 
-# arm
-pwm0.value = 0.04 #0.03 seems to work too
+pwm0.value = 0.5 #0.03 and 0.04 works for normal mode. 0.5 for bidirectional
 print("0.03 ARM SEQ END")
 sleep(5)
 
-pwm0.value = 0.5
+# print("0.5")
+# pwm0.value = 0.5
+# sleep(5)
+
 # print("RAMP to 7")
 # x = 0.04
 # while (x < 7.0):
@@ -28,4 +31,4 @@ pwm0.value = 0.5
 #     print(x)
 #     sleep(0.1)
 
-sleep(5)
+# sleep(5)
