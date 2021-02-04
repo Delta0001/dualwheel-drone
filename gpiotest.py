@@ -9,9 +9,6 @@ pwm0.off()
 # power
 print("POWER ON")
 pwm0.on()
-
-while (1):
-    x = input("Enter Prompt: ")
     
 sleep(5)
 
