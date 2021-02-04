@@ -1,20 +1,19 @@
 import gpiozero
 from time import sleep
 
-pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=True, initial_value=0, frequency=50)
+pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=True, initial_value=0.54, frequency=50)
 
 pwm0.off()
 print("POWER OFF")
 
 # power
-pwm0.value = 0.54
 pwm0.on()
 print("0.0 POWER ON")
 sleep(3)
 
 # arm sequence
 pwm0.value = 0.58
-print("0.54 ARM SEQ START")
+print("0.58 ARM SEQ START")
 sleep(5)
 
 pwm0.value = 0.54 #0.03 and 0.04 works for normal mode. 0.5 for bidirectional
