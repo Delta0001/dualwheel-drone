@@ -1,4 +1,4 @@
-from gpiozero.pins.pigpio import PiGPIOFactory
+from gpiozero.pins.pigpio import PiGPIOFactory, PWMOutputDevice
 from time import sleep
 
 factory = PiGPIOFactory()
