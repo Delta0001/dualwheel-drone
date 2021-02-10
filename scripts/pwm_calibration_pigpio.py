@@ -3,7 +3,6 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep
 
 factory = PiGPIOFactory()
-
 pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=False, initial_value=0.54, frequency=50, pin_factory=factory)
 
 print("POWER OFF")
