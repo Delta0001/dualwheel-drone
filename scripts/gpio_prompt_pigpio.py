@@ -1,16 +1,16 @@
-import gpiozero
+from gpiozero import Servo
 from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep
 
 factory = PiGPIOFactory()
-pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=False, initial_value=0.54, frequency=50)
+pwm0 = Servo("GPIO12", initial_value=0.5, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 
 while (1):
     x = input("Enter Prompt: ")
 
-    if (x == "ON"):
-        pwm0.on()
-    elif (x == "OFF"):
-        pwm0.off()
+    if (x == "+"):
+        pwm0.value += 0.05
+    elif (x == "-"):
+        pwm0.value -= 0.05
     else:
         pwm0.value = float(x)
