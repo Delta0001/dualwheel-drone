@@ -18,6 +18,8 @@ while (1):
         print(pwm0.value)
     elif (x == "pw"):
         print(pwm0.pulse_width)
+    elif (x == "fw"):
+        print(pwm0.frame_width)
     elif (x == "isactive"):
         print(pwm0.is_active)
     elif (x == "min"):
