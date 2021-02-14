@@ -12,5 +12,7 @@ while (1):
         pwm0.value += 0.05
     elif (x == "-"):
         pwm0.value -= 0.05
+    elif (x == "value"):
+        print(pwm0.value)
     else:
         pwm0.value = float(x)
