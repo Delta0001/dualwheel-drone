@@ -1,9 +1,9 @@
 from gpiozero import Servo
-from gpiozero.pins.pigpio import PiGPIOFactory
+# from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep
 
-factory = PiGPIOFactory()
-pwm0 = Servo("GPIO12", initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
+# factory = PiGPIOFactory()
+pwm0 = Servo("GPIO12", initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000)
 
 print("MAX THROTTLE")
 pwm0.max()
