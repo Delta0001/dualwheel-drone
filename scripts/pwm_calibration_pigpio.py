@@ -5,6 +5,8 @@ from time import sleep
 # factory = PiGPIOFactory()
 print("POWER ON")
 pwm0 = Servo("GPIO12", initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000)
+print("MID THROTTLE")
+pwm0.mid()
 sleep(4)
 
 print("MAX THROTTLE")
