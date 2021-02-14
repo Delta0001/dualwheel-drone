@@ -3,7 +3,7 @@ from gpiozero import Servo
 from time import sleep
 
 # factory = PiGPIOFactory()
-pwm0 = Servo("GPIO12")#, initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000)
+pwm0 = Servo("GPIO13")#, initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000)
 
 while (1):
     x = input("Enter Prompt: ")
@@ -28,7 +28,7 @@ while (1):
         pwm0.mid()
     elif (x == "max"):
         pwm0.max()
-    elif (x == "detatch" or x == "stop"):
+    elif (x == "detach" or x == "stop"):
         pwm0.detach()
     else:
         pwm0.value = float(x)
