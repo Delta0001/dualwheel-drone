@@ -18,6 +18,8 @@ while (1):
         print(pwm0.value)
     elif (x == "min"):
         pwm0.min
+    elif (x == "mid"):
+        pwm0.mid
     elif (x == "max"):
         pwm0.max
     else:
