@@ -16,11 +16,15 @@ while (1):
         print(pwm0.value)
     elif (x == "value"):
         print(pwm0.value)
+    elif (x == "pw"):
+        print(pwm0.pulse_width)
     elif (x == "min"):
-        pwm0.min
+        pwm0.min()
     elif (x == "mid"):
-        pwm0.mid
+        pwm0.mid()
     elif (x == "max"):
-        pwm0.max
+        pwm0.max()
+    elif (x == "detatch" || x == "stop"):
+        pwm0.detach()
     else:
         pwm0.value = float(x)
