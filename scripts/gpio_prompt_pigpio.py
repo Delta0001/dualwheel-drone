@@ -24,7 +24,7 @@ while (1):
         pwm0.mid()
     elif (x == "max"):
         pwm0.max()
-    elif (x == "detatch" || x == "stop"):
+    elif (x == "detatch" or x == "stop"):
         pwm0.detach()
     else:
         pwm0.value = float(x)
