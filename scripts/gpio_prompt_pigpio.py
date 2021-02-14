@@ -4,6 +4,7 @@ from time import sleep
 
 factory = PiGPIOFactory()
 pwm0 = Servo("GPIO12", initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
+pwm0 = Servo("GPIO13", initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 
 while (1):
     x = input("Enter Prompt: ")
