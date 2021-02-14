@@ -1,32 +1,20 @@
-import gpiozero
+from gpiozero import Servo
 from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep
 
 factory = PiGPIOFactory()
-pwm0 = gpiozero.PWMOutputDevice("GPIO12", active_high=False, initial_value=0.54, frequency=50, pin_factory=factory)
+pwm0 = Servo("GPIO12", initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 
-print("POWER OFF")
-pwm0.off()
-sleep(1)
-
-# power
-print("POWER ON")
-pwm0.on()
+print("MAX THROTTLE")
+pwm0.max()
 sleep(3)
 
-# arm sequence
-print("ARM SEQ START")
-pwm0.value = 0.58
-sleep(1)
+# print("MIN THROTTLE")
+# pwm0.min()
+# sleep(3)
 
-# measure max throttle
-print("MAX THROTTLE")
-pwm0.value = 0.9
-sleep(4)
-
-# measure min throttle
-print("MIN THROTTLE")
-pwm0.value = 0.1
-sleep(4)
+# print("MID THROTTLE")
+# pwm0.mid()
+# sleep(3)
 
 print("PROG EXIT")
