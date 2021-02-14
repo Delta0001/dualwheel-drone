@@ -9,10 +9,10 @@ while (1):
     x = input("Enter Prompt: ")
 
     if (x == "+"):
-        pwm0.value += 0.05
+        pwm0.value += 0.01
         print(pwm0.value)
     elif (x == "-"):
-        pwm0.value -= 0.05
+        pwm0.value -= 0.01
         print(pwm0.value)
     elif (x == "value"):
         print(pwm0.value)
