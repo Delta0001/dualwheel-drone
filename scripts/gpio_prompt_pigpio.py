@@ -3,7 +3,7 @@ from gpiozero import Servo
 from time import sleep
 
 # factory = PiGPIOFactory()
-pwm0 = Servo("GPIO12")#, initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000)
+pwm0 = Servo("GPIO12", initial_value=0.0, min_pulse_width=1/1000, max_pulse_width=2/1000)
 
 while (1):
     x = input("Enter Prompt: ")
@@ -23,7 +23,7 @@ while (1):
     elif (x == "isactive"):
         print(pwm0.is_active)
     elif (x == "min"):
-        pwm0.min() # actual min seems to be -0.27 for motor 2
+        pwm0.min() # actual min seems to be -0.27
     elif (x == "mid"):
         pwm0.mid()
     elif (x == "max"):
