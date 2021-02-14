@@ -12,19 +12,19 @@ while (1):
     if (x == "+"):
         pwm0.value += 0.01
         pwm1.value += 0.01
-        print(pwm0.value, pwm1.value, sep=" - ")
+        print(pwm0.value, pwm1.value, sep=" // ")
     elif (x == "-"):
         pwm0.value -= 0.01
         pwm1.value -= 0.01
-        print(pwm0.value, pwm1.value, sep=" - ")
+        print(pwm0.value, pwm1.value, sep=" // ")
     elif (x == "value"):
-        print(pwm0.value, pwm1.value, sep=" - ")
+        print(pwm0.value, pwm1.value, sep=" // ")
     elif (x == "pw"):
-        print(pwm0.pulse_width, pwm1.pulse_width, sep=" - ")
+        print(pwm0.pulse_width, pwm1.pulse_width, sep=" // ")
     elif (x == "fw"):
-        print(pwm0.frame_width, pwm1.frame_width, sep=" - ")
+        print(pwm0.frame_width, pwm1.frame_width, sep=" // ")
     elif (x == "isactive"):
-        print(pwm0.is_active, pwm1.is_active, sep=" - ")
+        print(pwm0.is_active, pwm1.is_active, sep=" // ")
     elif (x == "min"):
         pwm0.min() # actual min seems to be -0.27
         pwm1.min() # actual min seems to be -0.27
