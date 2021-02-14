@@ -18,8 +18,7 @@ while (1):
         pwm1.value -= 0.01
         print(pwm0.value, pwm1.value, sep=" - ")
     elif (x == "value"):
-        print(pwm0.value)
-        print(pwm1.value)
+        print(pwm0.value, pwm1.value, sep=" - ")
     elif (x == "pw"):
         print(pwm0.pulse_width, pwm1.pulse_width, sep=" - ")
     elif (x == "fw"):
