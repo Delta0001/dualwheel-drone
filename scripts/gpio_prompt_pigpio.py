@@ -10,9 +10,15 @@ while (1):
 
     if (x == "+"):
         pwm0.value += 0.05
+        print(pwm0.value)
     elif (x == "-"):
         pwm0.value -= 0.05
+        print(pwm0.value)
     elif (x == "value"):
         print(pwm0.value)
+    elif (x == "min"):
+        pwm0.min
+    elif (x == "max"):
+        pwm0.max
     else:
         pwm0.value = float(x)
