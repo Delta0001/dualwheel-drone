@@ -1,6 +1,12 @@
 # dualwheel-drone
 
-## web controller additional setup:
+## web controller setup
+``sudo apt-get install pigpio python-pigpio python3-pigpio``
+``sudo npm install pigpio -g``
+
+``sudo pigpiod`` needs to be run in the background
+
+## OLD web controller additional setup:
 ### Disable GPIO interrupts
 https://www.npmjs.com/package/rpio#disable-gpio-interrupts  
 If running a newer Raspbian release, you will need to add the following line to
