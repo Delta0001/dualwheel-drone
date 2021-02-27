@@ -10,7 +10,7 @@ var throttle = MID_THROTTLE_PW;
 const motor1 = new Gpio(12, {mode: Gpio.OUTPUT});
 const motor2 = new Gpio(13, {mode: Gpio.OUTPUT});
 
-console.warn("THIS WORKED? "); // debug
+console.log("THIS WORKED? "); // debug
 // new_speed is a value between 0 and 100 indicating throttle percentage
 function setSpeed(new_speed) {
     var new_throttle = (MAX_THROTTLE_PW - MID_THROTTLE_PW) * (newspeed * 0.01);

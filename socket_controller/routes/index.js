@@ -22,7 +22,7 @@ socketServer.on('connection', (socketClient) => {
 
 function handleMessage(message) {
   var params = message.split(" ");
-
+  console.log("test? "); // debug
   switch (params[0]) {
     case 'speed':
       if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.setSpeed(params[1]);
