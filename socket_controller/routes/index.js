@@ -24,8 +24,9 @@ function handleMessage(message) {
   var params = message.split(" ");
   switch (params[0]) {
     case 'sequence':
+      onsole.log("this ran1");
       if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.init();
-      console.log("this ran");
+      console.log("this ran2");
       break;
     case 'speed':
       if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.setSpeed(params[1]);
