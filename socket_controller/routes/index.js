@@ -1,7 +1,8 @@
 var express = require('express');
-var driver = require('../pigpio-driver')
 var router = express.Router();
 var WebSocket = require('ws');
+process.env.NODE_ENV = 'DISABLE_DRIVER';
+if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) var driver = require('../pigpio-driver');
 
 // WebSocket setup
 var socketServer = new WebSocket.Server({port: 3030});
@@ -24,22 +25,22 @@ function handleMessage(message) {
 
   switch (params[0]) {
     case 'speed':
-      driver.setSpeed(params[1]);
+      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.setSpeed(params[1]);
       break;
     case 'stop':
-      driver.stop();
+      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.stop();
       break;
     case 'forward':
-      driver.drive('forward');
+      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.drive('forward');
       break;
     case 'left':
-      driver.drive('left');
+      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.drive('left');
       break;
     case 'right':
-      driver.drive('right');
+      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.drive('right');
       break;
     case 'reverse':
-      driver.drive('reverse');
+      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.drive('reverse');
       break;
     default:
       console.log("Unknown Message");
@@ -53,7 +54,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.put('/speed/:value', function (req, res, next) {
-  driver.setSpeed(req.params.value)
+  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.setSpeed(req.params.value)
   // console.log(req.params.value)
   next()
 }, function (req, res) {
@@ -61,35 +62,35 @@ router.put('/speed/:value', function (req, res, next) {
 })
 
 router.post('/stop', function (req, res, next) {
-  driver.stop()
+  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.stop()
   next()
 }, function (req, res) {
   res.send('Got a POST request at /stop')
 })
 
 router.post('/forward', function (req, res, next) {
-  driver.drive("forward")
+  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.drive("forward")
   next()
 }, function (req, res) {
   res.send('Got a POST request at /forward')
 })
 
 router.post('/left', function (req, res, next) {
-  driver.drive("left")
+  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' )// driver.drive("left")
   next()
 }, function (req, res) {
   res.send('Got a POST request at /left')
 })
 
 router.post('/right', function (req, res, next) {
-  driver.drive("right")
+  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.drive("right")
   next()
 }, function (req, res) {
   res.send('Got a POST request at /right')
 })
 
 router.post('/reverse', function (req, res, next) {
-  driver.drive("reverse")
+  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.drive("reverse")
   next()
 }, function (req, res) {
   res.send('Got a POST request at /reverse')

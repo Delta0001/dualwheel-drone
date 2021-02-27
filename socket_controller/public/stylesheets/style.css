@@ -36,3 +36,7 @@ td {
   height: 100px;
   border: 1px solid black;
 }
+
+.connectionStatus {
+  background-color: red;
+}

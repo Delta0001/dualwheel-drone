@@ -13,9 +13,23 @@
     <!-- <h1>The XMLHttpRequest Object</h1>/h1> -->
     <script>
         var xhttp = new XMLHttpRequest();
-        const ws = new WebSocket('ws://raspberrypi:3030');
+        var piserver = 'ws://raspberrypi:3030';
+        var localserver = 'ws://localhost:3030'
+
+        ws = new WebSocket(piserver);
+        ws.onerror = () => {
+            console.log('Failed. Trying localserver.');
+            setStatusColor("red");
+            ws = new WebSocket(localserver);
+            ws.onopen = () => {
+                console.log('Connected to: ' + localserver);
+                setStatusColor("green");
+            };
+        };
+
         ws.onopen = () => {
-            console.log('Now connected');
+            console.log('Connected to: ' + piserver);
+            setStatusColor("green");
         };
 
         window.addEventListener('keydown', function (event) {
@@ -53,6 +67,10 @@
                     break;
             }
         });
+
+        function setStatusColor(color) {
+            document.getElementsByClassName('connectionStatus')[0].style.backgroundColor = color;
+        }
 
         function setSpeed() {
             var speed;
@@ -106,7 +124,7 @@
             <td>
                 <input type="image" src="images/Arrow.png" class="rotate270" onclick="moveLeft()" name="leftButton">
             </td>
-            <td></td>
+            <td class="connectionStatus"></td>
             <td>
                 <input type="image" src="images/Arrow.png" class="rotate90" onclick="moveRight()" name="rightButton">
             </td>
