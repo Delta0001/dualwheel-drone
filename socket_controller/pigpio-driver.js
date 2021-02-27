@@ -1,3 +1,5 @@
+console.log("this ran3"); // debug
+
 var Gpio = require('pigpio').Gpio;
 
 const MAX_THROTTLE_PW = 2000;
@@ -28,7 +30,7 @@ function init() {
 
     setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW + 200), 1000)
     setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW + 200), 1000)
-    
+
     setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW - 20), 1000)
     setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW - 20), 3000)
 }
