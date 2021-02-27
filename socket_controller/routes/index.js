@@ -11,7 +11,6 @@ socketServer.on('connection', (socketClient) => {
   console.log('Connected: client Set length: ', socketServer.clients.size);
 
   socketClient.on('message', (message) => {
-    console.log( 'received: ' + message);
     handleMessage(message);
   });
 
@@ -21,6 +20,7 @@ socketServer.on('connection', (socketClient) => {
 });
 
 function handleMessage(message) {
+  console.log( 'received: ' + message);
   var params = message.split(" ");
   switch (params[0]) {
     case 'sequence':
