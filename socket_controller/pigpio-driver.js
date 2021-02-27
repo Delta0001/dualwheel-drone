@@ -20,10 +20,16 @@ function setSpeed(new_speed) {
     console.log("global speed set to " + speed); // debug
 }
 
-console.log("Intiializing");
 
-setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW), 1000)
-setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 1000)
+function init() {
+    console.log("Intiializing");
+    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW), 1000)
+    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 1000)
+
+    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW+200), 1000)
+    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW+200), 1000)
+}
+init()
 
 function stop() {
     motor1.servoWrite(MID_THROTTLE_PW);
