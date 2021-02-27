@@ -23,6 +23,9 @@ socketServer.on('connection', (socketClient) => {
 function handleMessage(message) {
   var params = message.split(" ");
   switch (params[0]) {
+    case 'sequence':
+      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.init();
+      break;
     case 'speed':
       if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.setSpeed(params[1]);
       break;

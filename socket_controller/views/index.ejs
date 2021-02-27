@@ -74,6 +74,11 @@
 
         function setSpeed() {
             var speed;
+            ws.send('sequence');
+        }
+
+        function setSpeed() {
+            var speed;
             var radios = document.getElementsByName("speed");
             for (var i = 0; i < radios.length; i++) {
                 if (radios[i].checked) {
@@ -103,6 +108,7 @@
             ws.send('stop');
         }
     </script>
+    <button type="button" onclick="sequence()">Sequence</button>
     <button type="button" onclick="setSpeed()">Set Speed</button>
     <p id="demo"></p>
     <p>Speed:</p>
