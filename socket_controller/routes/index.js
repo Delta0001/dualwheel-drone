@@ -65,6 +65,13 @@ router.put('/speed/:value', function (req, res, next) {
   res.send('Got a PUT request at /value')
 })
 
+router.post('/init', function (req, res, next) {
+  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.init()
+  next()
+}, function (req, res) {
+  res.send('Got a POST request at /init')
+})
+
 router.post('/stop', function (req, res, next) {
   if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.stop()
   next()
