@@ -1,5 +1,3 @@
-console.log("this ran3"); // debug
-
 var Gpio = require('pigpio').Gpio;
 
 const MAX_THROTTLE_PW = 2000;
