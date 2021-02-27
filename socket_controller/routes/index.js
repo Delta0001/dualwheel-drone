@@ -87,7 +87,7 @@ router.post('/forward', function (req, res, next) {
 })
 
 router.post('/left', function (req, res, next) {
-  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' )// driver.drive("left")
+  if (process.env.NODE_ENV !== 'DISABLE_DRIVER' )  driver.drive("left")
   next()
 }, function (req, res) {
   res.send('Got a POST request at /left')

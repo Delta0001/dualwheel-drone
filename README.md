@@ -6,6 +6,8 @@
 
 ``sudo pigpiod`` needs to be run in the background
 
+Take note of the line ``"start": "sudo node ./bin/www"`` in package.json. This is required for the pigpio driver to work but be wary of the security risks.
+
 ## OLD web controller additional setup:
 ### Disable GPIO interrupts
 https://www.npmjs.com/package/rpio#disable-gpio-interrupts  
