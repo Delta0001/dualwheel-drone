@@ -13,7 +13,7 @@
     <!-- <h1>The XMLHttpRequest Object</h1>/h1> -->
     <script>
         var xhttp = new XMLHttpRequest();
-        const ws = new WebSocket('ws://localhost:3030');
+        const ws = new WebSocket('ws://raspberrypi:3030');
         ws.onopen = () => {
             console.log('Now connected');
         };

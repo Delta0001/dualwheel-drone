@@ -1,5 +1,5 @@
 var express = require('express');
-var driver = require('../driver')
+var driver = require('../pigpio-driver')
 var router = express.Router();
 
 /* GET home page. */
