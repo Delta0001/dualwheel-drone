@@ -26,6 +26,7 @@ function handleMessage(message) {
   switch (params[0]) {
     case 'speed':
       if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.setSpeed(params[1]);
+      console.log( 'set to: ' + params[1]);
       break;
     case 'stop':
       if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.stop();
