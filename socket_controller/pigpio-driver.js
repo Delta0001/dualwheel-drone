@@ -23,14 +23,14 @@ function setSpeed(new_speed) {
 
 function init() {
     console.log("Intiializing");
+    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW), 1000)
+    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 1000)
+
     setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW + 200), 1000)
     setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW + 200), 1000)
-
+    
     setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW - 20), 1000)
     setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW - 20), 3000)
-
-    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW + 200), 1000)
-    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW + 200), 1000)
 }
 init()
 
