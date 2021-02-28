@@ -1,12 +1,12 @@
 var Gpio = require('pigpio').Gpio;
 
-var trim = 0;
-
 var throttle = 0;
+
 const MAX_THROTTLE_PW = 2000;
-const MID_THROTTLE_PW = 1500 + trim;
+const MID_THROTTLE_PW = 1500;
 const MIN_THROTTLE_PW = 1000;
 
+var trimmed_mid_throttle = MID_THROTTLE_PW;
 
 // Setup PWM pins
 const motor1 = new Gpio(12, {mode: Gpio.OUTPUT});
@@ -21,9 +21,9 @@ function setSpeed(new_throttle) {
     console.log("throttle speed set to " + new_throttle); // debug
 }
 
-function setTrim(new_trim) {
-    trime = new_trim;
-    console.log("trim set to " + new_trim); // debug
+function setTrim(trim) {
+    trimmed_mid_throttle = MID_THROTTLE_PW + trim;
+    console.log("trim set to " + trim); // debug
 }
 
 function init() {
