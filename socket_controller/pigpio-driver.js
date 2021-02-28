@@ -1,7 +1,9 @@
 var Gpio = require('pigpio').Gpio;
 
+var trim = -20;
+
 const MAX_THROTTLE_PW = 2000;
-const MID_THROTTLE_PW = 1500;
+const MID_THROTTLE_PW = 1500 + trim;
 const MIN_THROTTLE_PW = 1000;
 
 var throttle = MID_THROTTLE_PW;
@@ -11,13 +13,12 @@ const motor1 = new Gpio(12, {mode: Gpio.OUTPUT});
 const motor2 = new Gpio(13, {mode: Gpio.OUTPUT});
 
 // new_speed is a value between 0 and 100 indicating throttle percentage
-function setSpeed(new_speed) {
-    var new_throttle = (MAX_THROTTLE_PW - MID_THROTTLE_PW) * (new_speed * 0.01);
-    if (new_speed <= MAX_THROTTLE_PW && MIN_THROTTLE_PW >= 0) {
-        console.log("speed set to " + new_speed); // debug
+function setSpeed(new_throttle) {
+    var new_throttle = (MAX_THROTTLE_PW - MID_THROTTLE_PW) * (new_throttle * 0.01);
+    if (new_throttle <= MAX_THROTTLE_PW && MIN_THROTTLE_PW >= 0) {
         throttle = new_throttle;
     }
-    console.log("global speed set to " + new_speed); // debug
+    console.log("throttle speed set to " + new_throttle); // debug
 }
 
 
@@ -29,8 +30,17 @@ function init() {
     setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW + 200), 1000)
     setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW + 200), 1000)
 
-    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW - 20), 1000)
-    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW - 20), 3000)
+    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW), 1000)
+    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 1000)
+
+    // setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW), 1000)
+    // setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 1000)
+
+    // setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW + 200), 1000)
+    // setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW + 200), 1000)
+
+    // setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW - 20), 1000)
+    // setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW - 20), 3000)
 }
 
 function stop() {
@@ -62,8 +72,4 @@ function drive(direction) {
     }
 }
 
-function debugPrint() {
-    console.log("test");
-}
-
-module.exports = { setSpeed, stop, drive, init, debugPrint };
+module.exports = { setSpeed, stop, drive, init };
