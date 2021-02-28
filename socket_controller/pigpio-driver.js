@@ -17,7 +17,7 @@ function setSpeed(new_throttle) {
     var pulse_width = (MAX_THROTTLE_PW - MID_THROTTLE_PW) * (new_throttle * 0.01);
     if (new_throttle <= 5) {
         throttle = 0;
-    } else if (new_throttle <= MAX_THROTTLE_PW && new_throttle >= MIN_THROTTLE_PW) {
+    } else if (pulse_width <= MAX_THROTTLE_PW && pulse_width >= MIN_THROTTLE_PW) {
         throttle = pulse_width;
     }
     console.log("throttle speed set to " + pulse_width); // debug
@@ -31,7 +31,6 @@ function setTrim(trim) {
 
 function init() {
     console.log("Intiializing sequence");
-    console.log(trimmed_mid_throttle_pw);
     setTimeout( () => motor1.servoWrite(trimmed_mid_throttle_pw), 1000)
     setTimeout( () => motor2.servoWrite(trimmed_mid_throttle_pw), 1000)
 
