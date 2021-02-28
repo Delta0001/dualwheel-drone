@@ -11,7 +11,7 @@ socketServer.on('connection', (socketClient) => {
   console.log('Connected: client Set length: ', socketServer.clients.size);
   
   socketClient.on('message', (message) => {
-    if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.debugPrint();
+    driver.debugPrint();
     handleMessage(message);
   });
 
