@@ -28,38 +28,38 @@ function setTrim(trim) {
 
 function init() {
     console.log("Intiializing sequence");
-    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW), 1000)
-    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 1000)
+    setTimeout( () => motor1.servoWrite(trimmed_mid_throttle), 1000)
+    setTimeout( () => motor2.servoWrite(trimmed_mid_throttle), 1000)
 
-    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW + 200), 1000)
-    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW + 200), 1000)
+    setTimeout( () => motor1.servoWrite(trimmed_mid_throttle + 200), 1000)
+    setTimeout( () => motor2.servoWrite(trimmed_mid_throttle + 200), 1000)
 
-    setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW - 20), 1000)
-    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW - 20), 3000)
+    setTimeout( () => motor1.servoWrite(trimmed_mid_throttle), 1000)
+    setTimeout( () => motor2.servoWrite(trimmed_mid_throttle), 3000)
 }
 
 function stop() {
-    motor1.servoWrite(MID_THROTTLE_PW);
-    motor2.servoWrite(MID_THROTTLE_PW);
+    motor1.servoWrite(trimmed_mid_throttle);
+    motor2.servoWrite(trimmed_mid_throttle);
 }
 
 function drive(direction) {
     switch (direction) {
         case "forward":
-            motor1.servoWrite(MID_THROTTLE_PW + throttle);
-            motor2.servoWrite(MID_THROTTLE_PW + throttle);
+            motor1.servoWrite(trimmed_mid_throttle + throttle);
+            motor2.servoWrite(trimmed_mid_throttle + throttle);
             break;
         case "left":
-            motor1.servoWrite(MID_THROTTLE_PW + throttle);
-            motor2.servoWrite(MID_THROTTLE_PW - throttle);
+            motor1.servoWrite(trimmed_mid_throttle + throttle);
+            motor2.servoWrite(trimmed_mid_throttle - throttle);
             break;
         case "right":
-            motor1.servoWrite(MID_THROTTLE_PW - throttle);
-            motor2.servoWrite(MID_THROTTLE_PW + throttle);
+            motor1.servoWrite(trimmed_mid_throttle - throttle);
+            motor2.servoWrite(trimmed_mid_throttle + throttle);
             break;
         case "reverse":
-            motor1.servoWrite(MID_THROTTLE_PW - throttle);
-            motor2.servoWrite(MID_THROTTLE_PW - throttle);
+            motor1.servoWrite(trimmed_mid_throttle - throttle);
+            motor2.servoWrite(trimmed_mid_throttle - throttle);
             break;
         default:
             console.log("Unknown Direction");
