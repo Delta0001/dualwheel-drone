@@ -18,8 +18,7 @@ function setSpeed(new_throttle) {
     // if (new_throttle <= 5) {
     //     throttle_pw = 0;
     // } else 
-    if (pulse_width <= MAX_THROTTLE_PW && pulse_width >= MIN_THROTTLE_PW) {
-        console.log(pulse_width); // DEBUG
+    if (pulse_width <= MAX_THROTTLE_PW || pulse_width >= MIN_THROTTLE_PW) {
         throttle_pw = pulse_width;
     }
     console.log("throttle speed set to " + pulse_width); // DEBUG
