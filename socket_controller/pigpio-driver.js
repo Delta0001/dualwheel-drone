@@ -35,7 +35,7 @@ function init() {
     setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW + 200), 1000)
 
     setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW), 1000)
-    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 1000)
+    setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 3000)
 }
 
 function stop() {
