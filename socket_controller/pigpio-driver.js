@@ -22,7 +22,7 @@ function setSpeed(new_speed) {
 
 
 function init() {
-    console.log("Intiializing");
+    console.log("Intiializing sequence");
     setTimeout( () => motor1.servoWrite(MID_THROTTLE_PW), 1000)
     setTimeout( () => motor2.servoWrite(MID_THROTTLE_PW), 1000)
 
@@ -63,4 +63,4 @@ function drive(direction) {
     }
 }
 
-module.exports = { setSpeed, stop, drive };
+module.exports = { setSpeed, stop, drive, init };
