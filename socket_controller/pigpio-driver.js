@@ -1,6 +1,6 @@
 var Gpio = require('pigpio').Gpio;
 
-var trim = -20;
+var trim = -40;
 
 const MAX_THROTTLE_PW = 2000;
 const MID_THROTTLE_PW = 1500 + trim;
