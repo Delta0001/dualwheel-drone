@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var WebSocket = require('ws');
 process.env.NODE_ENV = 'DISABLE_DRIVER';
-if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) var driver = require('../pigpio-driver');
+var driver = require('../pigpio-driver');
 
 // WebSocket setup
 var socketServer = new WebSocket.Server({port: 3030});
