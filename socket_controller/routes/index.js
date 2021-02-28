@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var WebSocket = require('ws');
-process.env.NODE_ENV = 'DISABLE_DRIVER';
-var driver = require('../pigpio-driver');
+if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) var driver = require('../pigpio-driver');
 
 // WebSocket setup
 var socketServer = new WebSocket.Server({port: 3030});
@@ -11,7 +10,7 @@ socketServer.on('connection', (socketClient) => {
   console.log('Connected: client Set length: ', socketServer.clients.size);
   
   socketClient.on('message', (message) => {
-    driver.debugPrint();
+    if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.debugPrint();
     handleMessage(message);
   });
 
