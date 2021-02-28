@@ -1,6 +1,6 @@
 var Gpio = require('pigpio').Gpio;
 
-var trim = -25;
+var trim = 0;
 
 const MAX_THROTTLE_PW = 2000;
 const MID_THROTTLE_PW = 1500 + trim;
@@ -21,6 +21,10 @@ function setSpeed(new_throttle) {
     console.log("throttle speed set to " + new_throttle); // debug
 }
 
+function setTrim(new_trim) {
+    trime = new_trim;
+    console.log("trim set to " + new_trim); // debug
+}
 
 function init() {
     console.log("Intiializing sequence");
@@ -63,4 +67,4 @@ function drive(direction) {
     }
 }
 
-module.exports = { setSpeed, stop, drive, init };
+module.exports = { setSpeed, setTrim, stop, drive, init };

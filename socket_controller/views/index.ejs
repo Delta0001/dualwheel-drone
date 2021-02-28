@@ -5,6 +5,7 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <style></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -108,17 +109,56 @@
             ws.send('stop');
         }
     </script>
-    <button type="button" onclick="sequence()">Sequence</button>
-    <button type="button" onclick="setSpeed()">Set Speed</button>
-    <p id="demo"></p>
-    <p>Speed:</p>
-    <input type="radio" id="option1" name="speed" value="10" checked="true">
-    <label for="option1">10%</label><br>
-    <input type="radio" id="option2" name="speed" value="25">
-    <label for="option2">25%</label><br>
-    <input type="radio" id="option3" name="speed" value="50">
-    <label for="option3">50%</label><br>
-    <table class="controllerTable">
+
+    <table class="tableContainer">
+        <tr>
+            <td>
+                <div><button class="button" type="button" onclick="sequence()">Sequence</button></div>
+            </td>
+            <td>
+                <div><button type="button" onclick="setSpeed()">Set Speed</button></div>
+            </td>
+            <td>
+                <div><button type="button" onclick="setSpeed()">Set Trim</button></div>
+            </td>
+        </tr>
+    </table>
+
+
+    <div class="sliderContainer" >
+        <span>Speed</span>
+        <input type="range" min="0" max="50" value="0" class="speedSlider">
+        <span id="speedValue"></span>
+    </div>
+
+    <div class="sliderContainer" >
+        <span>Trim</span>
+        <input type="range" min="-30" max="30" value="0" class="speedSlider">
+        <span id="trimValue"></span>
+    </div>
+
+    <script>        
+        // Set speed slider value
+        var slider = document.getElementsByClassName("speedSlider")[0];
+        var output = document.getElementById("speedValue");
+        output.innerHTML = slider.value
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+            ws.send('speed ' + this.value);
+        }
+
+        // Set trim slider value
+        var slider = document.getElementsByClassName("speedSlider")[1];
+        var output = document.getElementById("trimValue");
+        output.innerHTML = slider.value
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+            ws.send('trim ' + this.value);
+        }
+    </script>
+
+
+    <table class="tableContainer">
         <tr>
             <td></td>
             <td>
@@ -142,20 +182,6 @@
                     name="reverseButton">
             </td>
             <td></td>
-        </tr>
-    </table>
-    <br><br><br><br>
-    <table style="margin:auto;">
-        <tr>
-            <td class="boxed">
-                <div></div>
-            </td>
-            <td class="boxed">
-                <div></div>
-            </td>
-            <td class="boxed">
-                <div></div>
-            </td>
         </tr>
     </table>
 </body>
