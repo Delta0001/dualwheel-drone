@@ -28,6 +28,7 @@ function setTrim(trim) {
 
 function init() {
     console.log("Intiializing sequence");
+    console.log(trimmed_mid_throttle);
     setTimeout( () => motor1.servoWrite(trimmed_mid_throttle), 1000)
     setTimeout( () => motor2.servoWrite(trimmed_mid_throttle), 1000)
 
