@@ -139,19 +139,19 @@
 
     <script>        
         // Set speed slider value
-        var slider = document.getElementsByClassName("speedSlider")[0];
+        var speedSlider = document.getElementsByClassName("speedSlider")[0];
         var output = document.getElementById("speedValue");
-        output.innerHTML = slider.value
-        slider.oninput = function() {
+        output.innerHTML = speedSlider.value
+        speedSlider.oninput = function() {
             output.innerHTML = this.value;
             ws.send('speed ' + this.value);
         }
 
         // Set trim slider value
-        var slider = document.getElementsByClassName("speedSlider")[1];
+        var trimSlider = document.getElementsByClassName("speedSlider")[1];
         var output = document.getElementById("trimValue");
-        output.innerHTML = slider.value
-        slider.oninput = function() {
+        output.innerHTML = trimSlider.value
+        trimSlider.oninput = function() {
             output.innerHTML = this.value;
             ws.send('trim ' + this.value);
         }
