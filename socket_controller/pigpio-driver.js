@@ -12,7 +12,7 @@ const motor2 = new Gpio(13, {mode: Gpio.OUTPUT});
 
 // new_speed is a value between 0 and 100 indicating throttle percentage
 function setSpeed(new_speed) {
-    var new_throttle = (MAX_THROTTLE_PW - MID_THROTTLE_PW) * (newspeed * 0.01);
+    var new_throttle = (MAX_THROTTLE_PW - MID_THROTTLE_PW) * (new_speed * 0.01);
     if (new_speed <= MAX_THROTTLE_PW && MIN_THROTTLE_PW >= 0) {
         console.log("speed set to " + new_speed); // debug
         throttle = new_throttle;
