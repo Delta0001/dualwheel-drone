@@ -140,19 +140,19 @@
     <script>        
         // Set speed slider value
         var speedSlider = document.getElementsByClassName("speedSlider")[0];
-        var output = document.getElementById("speedValue");
-        output.innerHTML = speedSlider.value
+        var speedOutput = document.getElementById("speedValue");
+        speedOutput.innerHTML = speedSlider.value
         speedSlider.oninput = function() {
-            output.innerHTML = this.value;
+            speedOutput.innerHTML = this.value;
             ws.send('speed ' + this.value);
         }
 
         // Set trim slider value
         var trimSlider = document.getElementsByClassName("speedSlider")[1];
-        var output = document.getElementById("trimValue");
-        output.innerHTML = trimSlider.value
+        var trimOutput = document.getElementById("trimValue");
+        trimOutput.innerHTML = trimSlider.value
         trimSlider.oninput = function() {
-            output.innerHTML = this.value;
+            trimOutput.innerHTML = this.value;
             ws.send('trim ' + this.value);
         }
     </script>
