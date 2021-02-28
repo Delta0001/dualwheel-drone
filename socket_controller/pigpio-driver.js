@@ -22,7 +22,7 @@ function setSpeed(new_throttle) {
 }
 
 function setTrim(trim) {
-    trimmed_mid_throttle = MID_THROTTLE_PW + trim;
+    trimmed_mid_throttle = MID_THROTTLE_PW + int(trim);
     console.log("trim set to " + trim); // debug
 }
 
