@@ -17,7 +17,7 @@ function setSpeed(new_speed) {
         console.log("speed set to " + new_speed); // debug
         throttle = new_throttle;
     }
-    console.log("global speed set to " + speed); // debug
+    console.log("global speed set to " + new_speed); // debug
 }
 
 
