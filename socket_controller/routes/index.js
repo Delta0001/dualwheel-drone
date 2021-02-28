@@ -25,6 +25,7 @@ function handleMessage(message) {
   switch (params[0]) {
     case 'sequence':
       console.log("this ran1"); // debug
+      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.print();
       if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.init();
       console.log("this ran2"); // debug
       break;

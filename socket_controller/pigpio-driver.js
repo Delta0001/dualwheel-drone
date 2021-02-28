@@ -63,4 +63,8 @@ function drive(direction) {
     }
 }
 
-module.exports = { setSpeed, stop, drive, init };
+function debugPrint() {
+    console.log("test");
+}
+
+module.exports = { setSpeed, stop, drive, init, debugPrint };
