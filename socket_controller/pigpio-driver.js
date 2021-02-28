@@ -50,6 +50,7 @@ function stop() {
 function drive(direction) {
     switch (direction) {
         case "forward":
+            console.log(trimmed_mid_throttle_pw + throttle_pw); // DEBUG
             motor1.servoWrite(trimmed_mid_throttle_pw + throttle_pw);
             motor2.servoWrite(trimmed_mid_throttle_pw + throttle_pw);
             break;
