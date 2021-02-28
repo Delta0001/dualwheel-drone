@@ -150,7 +150,7 @@
         // Set trim slider value
         var trimSlider = document.getElementsByClassName("speedSlider")[1];
         var trimOutput = document.getElementById("trimValue");
-        ws.send('trim ' + trimSlider.value);
+        // ws.send('trim ' + trimSlider.value);
         trimOutput.innerHTML = trimSlider.value
         trimSlider.oninput = function() {
             trimOutput.innerHTML = this.value;
