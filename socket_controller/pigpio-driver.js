@@ -21,13 +21,13 @@ function setSpeed(new_throttle) {
     if (pulse_width <= MAX_THROTTLE_PW && pulse_width >= MIN_THROTTLE_PW) {
         throttle_pw = pulse_width;
     }
-    console.log("throttle speed set to " + pulse_width); // debug
+    console.log("throttle speed set to " + pulse_width); // DEBUG
 }
 
 // Closest trim value I could set was -22 with 5% minimum speed
 function setTrim(trim) {
     trimmed_mid_throttle_pw = MID_THROTTLE_PW + parseInt(trim);
-    console.log("trim set to " + trim); // debug
+    console.log("trim set to " + trim); // DEBUG
 }
 
 function init() {
@@ -50,7 +50,8 @@ function stop() {
 function drive(direction) {
     switch (direction) {
         case "forward":
-            console.log(trimmed_mid_throttle_pw + throttle_pw); // DEBUG
+            console.log(trimmed_mid_throttle_pw); // DEBUG
+            console.log(throttle_pw); // DEBUG
             motor1.servoWrite(trimmed_mid_throttle_pw + throttle_pw);
             motor2.servoWrite(trimmed_mid_throttle_pw + throttle_pw);
             break;
