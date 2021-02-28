@@ -6,7 +6,7 @@ const MAX_THROTTLE_PW = 2000;
 const MID_THROTTLE_PW = 1500;
 const MIN_THROTTLE_PW = 1000;
 
-var trimmed_mid_throttle_pw = MID_THROTTLE_PW;
+var trimmed_mid_throttle_pw = MID_THROTTLE_PW - 22;
 
 // Setup PWM pins
 const motor1 = new Gpio(12, {mode: Gpio.OUTPUT});
@@ -20,13 +20,13 @@ function setSpeed(new_throttle) {
     } else if (pulse_width <= MAX_THROTTLE_PW || pulse_width >= MIN_THROTTLE_PW) {
         throttle_pw = pulse_width;
     }
-    console.log("throttle speed set to " + pulse_width); // DEBUG
+    console.log("throttle speed set to " + pulse_width);
 }
 
 // Closest trim value I could set was -22 with 5% minimum speed
 function setTrim(trim) {
     trimmed_mid_throttle_pw = MID_THROTTLE_PW + parseInt(trim);
-    console.log("trim set to " + trim); // DEBUG
+    console.log("trim set to " + trim);
 }
 
 function init() {
