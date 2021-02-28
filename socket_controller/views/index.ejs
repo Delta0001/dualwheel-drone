@@ -113,7 +113,7 @@
     <table class="tableContainer">
         <tr>
             <td>
-                <div><button class="button" type="button" onclick="sequence()">Sequence</button></div>
+                <div><button class="sequenceButton" type="button" onclick="sequence()">Sequence</button></div>
             </td>
             <!-- <td>
                 <div><button type="button" onclick="setSpeed()">Set Speed</button></div>
@@ -162,23 +162,23 @@
         <tr>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png"                  ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveForward()" onmouseup="stopMotor()" name="forwardButton">
+                <button class="controlButton"           ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveForward()" onmouseup="stopMotor()" name="forwardButton">
             </td>
             <td></td>
         </tr>
         <tr>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate270" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveLeft()" onmouseup="stopMotor()" name="leftButton">
+                <button class="controlButton rotate270" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveLeft()" onmouseup="stopMotor()" name="leftButton">
             </td>
             <td class="connectionStatus"></td>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate90" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveRight()" onmouseup="stopMotor()" name="rightButton">
+                <button class="controlButton rotate90" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveRight()" onmouseup="stopMotor()" name="rightButton">
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <input type="image" src="images/Arrow.png" class="rotate180" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveReverse()" onmouseup="stopMotor()" name="reverseButton">
+                <button class="controlButton rotate180" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveReverse()" onmouseup="stopMotor()" name="reverseButton">
             </td>
             <td></td>
         </tr>
