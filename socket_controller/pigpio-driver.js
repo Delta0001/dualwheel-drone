@@ -6,7 +6,7 @@ const MAX_THROTTLE_PW = 2000;
 const MID_THROTTLE_PW = 1500;
 const MIN_THROTTLE_PW = 1000;
 
-var trimmed_mid_throttle_pw = MID_THROTTLE_PW + 22;
+var trimmed_mid_throttle_pw = MID_THROTTLE_PW + -22; // 22 is hardcoded
 
 // Setup PWM pins
 const motor1 = new Gpio(12, {mode: Gpio.OUTPUT});
