@@ -11,6 +11,7 @@ socketServer.on('connection', (socketClient) => {
   console.log('Connected: client Set length: ', socketServer.clients.size);
 
   socketClient.on('message', (message) => {
+    if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.init();
     handleMessage(message);
   });
 
@@ -26,7 +27,6 @@ function handleMessage(message) {
     case 'sequence':
       console.log("this ran1"); // debug
       if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.print();
-      if (process.env.NODE_ENV !== 'DISABLE_DRIVER' ) driver.init();
       console.log("this ran2"); // debug
       break;
     case 'speed':
