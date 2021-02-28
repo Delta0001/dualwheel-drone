@@ -16,9 +16,9 @@ const motor2 = new Gpio(13, {mode: Gpio.OUTPUT});
 function setSpeed(new_throttle) {
     var pulse_width = (MAX_THROTTLE_PW - MID_THROTTLE_PW) * (new_throttle * 0.01);
     if (new_throttle <= 5) {
-        throttle = 0;
+        throttle_pw = 0;
     } else if (pulse_width <= MAX_THROTTLE_PW && pulse_width >= MIN_THROTTLE_PW) {
-        throttle = pulse_width;
+        throttle_pw = pulse_width;
     }
     console.log("throttle speed set to " + pulse_width); // debug
 }
