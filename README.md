@@ -1,12 +1,9 @@
 # dualwheel-drone
 
-## web controller setup
-``sudo apt-get install pigpio python-pigpio python3-pigpio``
-``sudo npm install pigpio -g``
-
-``sudo pigpiod`` needs to be run in the background
-
-Take note of the line ``"start": "sudo node ./bin/www"`` in package.json. This is required for the pigpio driver to work but be wary of the security risks.
+## socket controller setup
+``sudo apt-get install pigpio python-pigpio python3-pigpio npm``  
+``sudo npm install pigpio nodemon`` 
+Install on production device: ``sudo npm install pigpio -g``
 
 ## OLD web controller additional setup:
 ### Disable GPIO interrupts
