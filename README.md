@@ -2,8 +2,8 @@
 
 ## socket controller setup
 ``sudo apt-get install pigpio python-pigpio python3-pigpio npm``  
-``sudo npm install pigpio nodemon`` 
-Install on production device: ``sudo npm install pigpio -g``
+Inside socket_controller/: ``sudo npm install pigpio nodemon`` 
+Also install on production device: ``sudo npm install pigpio -g``
 
 ## OLD web controller additional setup:
 ### Disable GPIO interrupts
