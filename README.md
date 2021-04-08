@@ -2,7 +2,7 @@
 
 ## socket controller setup
 ``sudo apt-get install pigpio python-pigpio python3-pigpio npm``  
-Inside socket_controller/: ``sudo npm install pigpio nodemon`` 
+Inside socket_controller/: ``npm install pigpio nodemon -g`` 
 Also install on production device: ``sudo npm install pigpio -g``
 
 ## OLD web controller additional setup:
