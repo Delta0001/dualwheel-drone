@@ -1,2 +1,2 @@
-cp service/drone.service /etc/systemd/system/
+cp drone.service /etc/systemd/system/
 sudo systemctl daemon-reload
