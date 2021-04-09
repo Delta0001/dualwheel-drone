@@ -1,0 +1,12 @@
+# Contents of /etc/systemd/system/myservice.service
+[Unit]
+Description=Starts the Drone Controller web server
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/home/pi/dualwheel-drone/socket_controller/startServer
+
+[Install]
+WantedBy=multi-user.target
