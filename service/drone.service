@@ -1,4 +1,3 @@
-# Contents of /etc/systemd/system/myservice.service
 [Unit]
 Description=Starts the Drone Controller web server
 After=network.target
