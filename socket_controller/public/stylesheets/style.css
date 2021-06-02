@@ -5,10 +5,12 @@
 }
 
 body {
-  /* padding: 50px; */
-  /* min-width: 100vw;
-  min-height: 100vw; */
+  color: white;
+  min-width: 50px;
+  min-height: 100px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://pbs.twimg.com/media/EVPZRsrU8AAXFTo?format=jpg&name=large");
+  background-size: cover;
 }
 
 a {
@@ -17,6 +19,30 @@ a {
 
 td {
   border: 1px solid black;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid black; */
+  padding: 5px;
+  min-width: 300px;
+}
+
+.flex1 {
+  flex: 0 0 50px;
+  text-align: center;
+}
+
+.flex2 {
+  flex: 0 0 200px;
+  text-align: center;
+}
+
+.flex3 {
+  flex: 3;
+  text-align: center;
 }
 
 .sequenceButton {
@@ -46,16 +72,10 @@ td {
   transform: rotate(270deg);
 }
 
+/* unused */
 .tableContainer {
   max-width: 300px;
   margin: 25px;
-}
-
-.slideContainer {
-  border: 1px solid black;
-  max-width: 300px;
-  margin: 25px;
-  /* width: 100%; */
 }
 
 .speedSlider {
@@ -85,4 +105,10 @@ td {
 
 .connectionStatus {
   background-color: red;
+}
+
+.controllerPosition {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 }

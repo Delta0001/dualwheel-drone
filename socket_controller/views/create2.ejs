@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        var piserver = 'ws://raspberrypi:3030';
+        var localserver = 'ws://localhost:3030'
+
+        ws = new WebSocket(piserver);
+        ws.onerror = () => {
+            console.log('Failed. Trying localserver.');
+            setStatusColor("red");
+            ws = new WebSocket(localserver);
+            ws.onopen = () => {
+                console.log('Connected to: ' + localserver);
+                setStatusColor("green");
+            };
+        };
+
+        ws.onopen = () => {
+            console.log('Connected to: ' + piserver);
+            setStatusColor("green");
+        };
+
+        window.addEventListener('keydown', function (event) {
+            switch (event.code) {
+                case "KeyA":
+                case "ArrowLeft":
+                    moveLeft();
+                    break;
+                case "KeyD":
+                case "ArrowRight":
+                    moveRight();
+                    break;
+                case "KeyW":
+                case "ArrowUp":
+                    moveForward();
+                    break;
+                case "KeyS":
+                case "ArrowDown":
+                    moveReverse();
+                    break;
+            }
+        });
+
+        window.addEventListener('keyup', function (event) {
+            switch (event.code) {
+                case "KeyA":
+                case "ArrowLeft":
+                case "KeyD":
+                case "ArrowRight":
+                case "KeyW":
+                case "ArrowUp":
+                case "KeyS":
+                case "ArrowDown":
+                    stopMotor();
+                    break;
+            }
+        });
+
+        function setStatusColor(color) {
+            document.getElementsByClassName('connectionStatus')[0].style.backgroundColor = color;
+        }
+
+        function sequence() {
+            var speed;
+            ws.send('sequence');
+        }
+
+        function setSpeed() {
+            var speed;
+            var radios = document.getElementsByName("speed");
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    speed = radios[i].value;
+                }
+            };
+            ws.send('speed ' + speed);
+        }
+
+        function moveForward() {
+            ws.send('forward');
+        }
+
+        function moveLeft() {
+            ws.send('left');
+        }
+
+        function moveRight() {
+            ws.send('right');
+        }
+
+        function moveReverse() {
+            ws.send('reverse');
+        }
+
+        function stopMotor() {
+            ws.send('stop');
+        }
+    </script>
+
+    <div class="navbar">
+        <a href="/">[home]</a>
+        <a href="/drone">[drone]</a>
+        <a href="/create2">[create2]</a>
+    </div>
+
+    <div class="container">
+        <tr>
+            <td>
+                <div><button class="sequenceButton" type="button" onclick="sequence()">Sequence</button></div>
+            </td>
+            <!-- <td>
+                <div><button type="button" onclick="setSpeed()">Set Speed</button></div>
+            </td>
+            <td>
+                <div><button type="button" onclick="setSpeed()">Set Trim</button></div>
+            </td> -->
+        </tr>
+    </div>
+
+    <div class="container">
+        <div class="flex1">Speed</div>
+        <div class="flex2">
+            <input type="range" min="0" max="50" value="0" class="speedSlider">
+        </div>
+        <div class="flex1" id="speedValue"></div>
+    </div>
+
+    <div class="container">
+        <div class="flex1">Trim</div>
+        <div class="flex2"><input type="range" min="0" max="50" value="0" class="speedSlider"></div>
+        <div class="flex1" id="trimValue"></div>
+    </div>
+
+    <div class="container">
+        <iframe width="100%" height="900" src="https://www.youtube.com/embed/Z7U9nd941p8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <script>        
+        // Set speed slider value
+        var speedSlider = document.getElementsByClassName("speedSlider")[0];
+        var speedOutput = document.getElementById("speedValue");
+        speedOutput.innerHTML = speedSlider.value
+        speedSlider.oninput = function() {
+            speedOutput.innerHTML = this.value;
+            ws.send('speed ' + this.value);
+        }
+
+        // Set trim slider value
+        var trimSlider = document.getElementsByClassName("speedSlider")[1];
+        var trimOutput = document.getElementById("trimValue");
+        trimOutput.innerHTML = trimSlider.value
+        trimSlider.oninput = function() {
+            trimOutput.innerHTML = this.value;
+            ws.send('trim ' + this.value);
+        }
+    </script>
+    <!-- Switch class back to 'container' for relative positioning -->
+    <div class="controllerPosition">
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="controlButton"           ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveForward()" onmouseup="stopMotor()" name="forwardButton">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="controlButton rotate270" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveLeft()" onmouseup="stopMotor()" name="leftButton">
+                </td>
+                <td class="connectionStatus"></td>
+                <td>
+                    <button class="controlButton rotate90" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveRight()" onmouseup="stopMotor()" name="rightButton">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="controlButton rotate180" ontouchstart="moveForward()" ontouchend="stopMotor()" onmousedown="moveReverse()" onmouseup="stopMotor()" name="reverseButton">
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
