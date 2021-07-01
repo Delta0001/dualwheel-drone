@@ -53,12 +53,12 @@ function drive(direction) {
             motor2.servoWrite(trimmed_mid_throttle_pw + throttle_pw);
             break;
         case "left":
-            motor1.servoWrite(trimmed_mid_throttle_pw + throttle_pw);
-            motor2.servoWrite(trimmed_mid_throttle_pw - throttle_pw);
-            break;
-        case "right":
             motor1.servoWrite(trimmed_mid_throttle_pw - throttle_pw);
             motor2.servoWrite(trimmed_mid_throttle_pw + throttle_pw);
+            break;
+        case "right":
+            motor1.servoWrite(trimmed_mid_throttle_pw + throttle_pw);
+            motor2.servoWrite(trimmed_mid_throttle_pw - throttle_pw);
             break;
         case "reverse":
             motor1.servoWrite(trimmed_mid_throttle_pw - throttle_pw);

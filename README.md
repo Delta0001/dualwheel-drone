@@ -1,5 +1,7 @@
 # dualwheel-drone
 
+TODO: https://www.npmjs.com/package/create2
+
 ## socket controller setup
 ``sudo apt-get install pigpio python-pigpio python3-pigpio npm``  
 Inside socket_controller/: ``npm install pigpio nodemon -g`` 

@@ -1,3 +1,4 @@
+// Unused since pigpio has better PWM
 var rpio = require('rpio');
 
 const GPIO12 = 32;
