@@ -30,6 +30,7 @@ def move(pos):
         PWM1.value = float(MID_THROTTLE+speed)
 
 def stop():
+    print("stopped")
     PWM1.value = float(MID_THROTTLE)
 
 bd.when_pressed = move
