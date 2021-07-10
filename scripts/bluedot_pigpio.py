@@ -14,20 +14,20 @@ speed = 0.02
 
 def move(pos):
     if pos.top:
-        pwm0.value = float(x)
-        pwm1.value = float(x)
+        pwm0.value = float(speed)
+        pwm1.value = float(speed)
     elif pos.bottom:
-        pwm0.value = float(x)
-        pwm1.value = float(x)
+        pwm0.value = float(speed)
+        pwm1.value = float(speed)
     elif pos.left:
-        pwm0.value = float(x)
-        pwm1.value = float(x)
+        pwm0.value = float(speed)
+        pwm1.value = float(speed)
     elif pos.right:
-        pwm0.value = float(x)
-        pwm1.value = float(x)
+        pwm0.value = float(speed)
+        pwm1.value = float(speed)
 
 def stop():
-    pwm1.value = float(-0.012)
+    pwm1.value = float(-0.2)
 
 bd.when_pressed = move
 bd.when_moved = move
