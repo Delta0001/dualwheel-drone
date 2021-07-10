@@ -6,13 +6,13 @@ from time import sleep
 
 bd = BlueDot()
 
-MID_THROTTLE = -0.055
+MID_THROTTLE = -0.06
 
 factory = PiGPIOFactory()
 PWM0 = Servo("GPIO12", initial_value=MID_THROTTLE, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 PWM1 = Servo("GPIO13", initial_value=MID_THROTTLE, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 
-speed = 0.05
+speed = 0.06
 
 def move(pos):
     print(pos)
@@ -31,6 +31,7 @@ def move(pos):
 
 def stop():
     print("stopped")
+    PWM0.value = float(MID_THROTTLE)
     PWM1.value = float(MID_THROTTLE)
 
 bd.when_pressed = move
