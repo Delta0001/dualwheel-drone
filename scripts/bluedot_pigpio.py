@@ -15,6 +15,7 @@ PWM1 = Servo("GPIO13", initial_value=MID_THROTTLE, min_pulse_width=1/1000, max_p
 speed = 0.05
 
 def move(pos):
+    print(pos)
     if pos.top:
         PWM0.value = float(MID_THROTTLE+speed)
         PWM1.value = float(MID_THROTTLE+speed)
