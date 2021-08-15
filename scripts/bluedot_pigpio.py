@@ -6,7 +6,7 @@ from time import sleep
 
 bd = BlueDot()
 
-MID_THROTTLE = -0.06
+MID_THROTTLE = -0.04
 
 factory = PiGPIOFactory()
 PWM0 = Servo("GPIO12", initial_value=MID_THROTTLE, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
