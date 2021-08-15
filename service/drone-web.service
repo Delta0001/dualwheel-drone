@@ -1,0 +1,12 @@
+[Unit]
+Description=Starts the Drone Controller web server
+After=bluetooth.target pigpiod.service
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=sudo python3 /home/pi/dualwheel-drone/scripts/bluedot_pigpio.py
+Description=node /home/pi/dualwheel-drone/socket_controller/bin/www
+
+[Install]
+WantedBy=multi-user.target
