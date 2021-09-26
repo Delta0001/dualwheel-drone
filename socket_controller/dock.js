@@ -54,6 +54,7 @@ is fired, and simply checks if the robot is already docked when the program star
 //Enter 's' into terminal to stop turning prematurely.
 
 const create = require('create2');
+// create.debug = true;
 let robot, run=1, drRun=0, drAngle=0, angle=0;
 
 function start() {
