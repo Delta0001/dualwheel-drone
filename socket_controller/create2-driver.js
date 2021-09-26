@@ -1,5 +1,4 @@
 create = require('create2')
-chalk = require('chalk');
 
 
 // create.debug = true;
@@ -9,21 +8,22 @@ create.open("COM4", main);
 function main(robot) {
     console.log(robot.data)
 
-    console.log("Reset")
-    setTimeout( () => robot.reset(), 1000)
 
-    console.log("Safe Mode")
-    setTimeout( () => robot.safe(), 1000)
+    // console.log("Reset")
+    // setTimeout( () => robot.reset(), 1000)
 
-    let chg = robot.data.charge/robot.data.maxCharge;
-    robot.setLeds(null, null, null, null, 255-(chg*255), 255);
-    console.log(robot.data.maxCharge)
+    // console.log("Safe Mode")
+    // setTimeout( () => robot.safe(), 1000)
+
+    // let chg = robot.data.charge/robot.data.maxCharge;
+    // robot.setLeds(null, null, null, null, 255-(chg*255), 255);
+    // console.log(robot.data.maxCharge)
 
     // console.log("Clean Mode")
     // robot.clean()
-    setTimeout( () => robot.clean(), 1000)
+    // setTimeout( () => robot.clean(), 1000)
 
-    robot.setSong(0, [[72,32],[76,32],[79,32],[72,32]]);
+    // robot.setSong(0, [[72,32],[76,32],[79,32],[72,32]]);
     
     // console.log("Close Communication")
     // robot.close()
