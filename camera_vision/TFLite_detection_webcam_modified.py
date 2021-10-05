@@ -14,11 +14,11 @@
 # I added my own method of drawing boxes and labels using OpenCV.
 # pip3 install opencv-contrib-python tensorflow
 # sudo apt-get install libwebp-dev libtiff-dev libopenjp2-7 openexr libhdf5-dev libavcodec-dev libavformat-dev libswscale-dev libgtk-3-dev 
-# python3 TFLite_detection_webcam.py --modeldir=models
+# python3 TFLite_detection_webcam_modified.py --modeldir=models
 # scp C:\Users\david\Documents\dualwheel-drone\camera-vision\TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi\TFLite_detection_webcam.py pi@pi4:~/; ssh pi@pi4 'python3 ~/TFLite_detection_webcam.py --modeldir=models'
 
 # known error:
-# pi@pi4:~ $ python3 TFLite_detection_webcam.py --modeldir=models
+# pi@pi4:~ $ python3 TFLite_detection_webcam_modified.py --modeldir=models
 # 2021-09-19 17:11:23.019577: E tensorflow/core/platform/hadoop/hadoop_file_system.cc:132] HadoopFileSystem load error: libhdfs.so: cannot open shared object file: No such file or directory
 # using default interpretor
 
@@ -172,6 +172,9 @@ videostream = VideoStream(resolution=(imW,imH),framerate=30).start()
 time.sleep(1)
 
 frame_count = 0
+
+center_x = 0
+center_y = 0
 #for frame1 in camera.capture_continuous(rawCapture, format="bgr",use_video_port=True):
 while True:
     # Start timer (for calculating frame rate)
@@ -200,6 +203,7 @@ while True:
     scores = interpreter.get_tensor(output_details[2]['index'])[0] # Confidence of detected objects
     #num = interpreter.get_tensor(output_details[3]['index'])[0]  # Total number of detected objects (inaccurate and not needed)
 
+
     # Loop over all detections and draw detection box if confidence is above minimum threshold
     for i in range(len(scores)):
         if ((scores[i] > min_conf_threshold) and (scores[i] <= 1.0)):
@@ -221,13 +225,25 @@ while True:
             cv2.rectangle(frame, (xmin, label_ymin-labelSize[1]-10), (xmin+labelSize[0], label_ymin+baseLine-10), (255, 255, 255), cv2.FILLED) # Draw white box to put label text in
             cv2.putText(frame, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2) # Draw label text
 
-            if(classes[i] == "person"):
+            if(object_name == "person"):
                 center_x=int((xmin+xmax)/2)
                 center_y=int((ymin+ymax)/2)
-
-                print("{0}{1} center position coordinates: {2} {3}\n".format(object_name, str(i), str(center_x), str(center_y)))
+                # print("DEBUG: center_x: {0} center_y:{1}".format(center_x, center_y))
+                # print("DEBUG: {0}{1} center position coordinates: {2} {3}\n".format(object_name, str(i), str(center_x), str(center_y)))
                 cv2.drawMarker(frame, (center_x,center_y), (10, 255, 0), cv2.MARKER_CROSS, 20, 2) # Draw crosshair marker on center of object
                 # cv2.circle(frame, (center_x,center_y), 2, (10, 255, 0), 2) # Draw circle on center of object
+
+    centerW = int(imW/2)
+    centerH = int(imH/2)
+    print("center_x: "+str(center_x))
+    arrowLength=20
+    # cv2.rectangle(frame, (imW/2,0), (imW/2,0), (10, 255, 0), 2) # Draw Center Box
+    if ( centerW < center_x ):
+        # print("point right")
+        cv2.arrowedLine(frame, (centerW-int(arrowLength/2), centerH), (centerW+int(arrowLength/2), centerH), (10, 255, 0), thickness=2 ) # Point Right
+    elif ( centerW > center_x ):
+        # print("point left")
+        cv2.arrowedLine(frame, (centerW+int(arrowLength/2), centerH), (centerW-int(arrowLength/2), centerH), (10, 255, 0), thickness=2 ) # Point Left 
 
     # Draw framerate in corner of frame
     cv2.putText(frame,'FPS: {0:.2f}'.format(frame_rate_calc),(30,50),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,0),2,cv2.LINE_AA)
