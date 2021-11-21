@@ -9,6 +9,7 @@ bd = BlueDot()
 MID_THROTTLE = -0.04
 
 factory = PiGPIOFactory()
+# PWM Values adjusted to work with a BLHeli ESC
 PWM0 = Servo("GPIO12", initial_value=MID_THROTTLE, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 PWM1 = Servo("GPIO13", initial_value=MID_THROTTLE, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 
